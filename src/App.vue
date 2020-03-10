@@ -2,7 +2,10 @@
     <div id="app">
 		<!-- 导航 -->
 		<header>
+            <div class="banner"></div>
+            <div class="nav">
 
+            </div>
 		</header>
 
         <router-view />
@@ -15,7 +18,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped lang="scss">
 #app {
     font-family: "Avenir", Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -24,4 +27,14 @@ export default {
     color: #2c3e50;
     /* margin-top: 60px; */
 }
+header{
+    width: 100%;
+    
+    .banner{
+        width: 100%;
+        height: 500px;
+        background: url('/static/img/banner.jpg') no-repeat;
+    }
+}
+
 </style>
