@@ -2,9 +2,32 @@
     <div id="app">
 		<!-- 导航 -->
 		<header>
-            <div class="banner"></div>
+            <!-- <div class="banner"></div> -->
             <div class="nav">
-
+                <div class="logo">iFENLAJI</div>
+                <div class="navInfo">
+                    <p class="left-line fl"></p>
+                    <p class="right-line fr"></p>
+                    <div class="nav-list clearFix">
+                        <ul class="clearFix">
+                            <li>
+                                <span>首页</span>
+                            </li>
+                            <li>
+                                <span>分类查询</span>
+                            </li>
+                            <li>
+                                <span>新闻中心</span>
+                            </li>
+                            <li>
+                                <span>垃圾回收</span>
+                            </li>
+                            <li>
+                                <span>关于</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
 		</header>
 
@@ -29,11 +52,49 @@ export default {
 }
 header{
     width: 100%;
-    
-    .banner{
-        width: 100%;
-        height: 500px;
-        background: url('/static/img/banner.jpg') no-repeat;
+    .nav{
+        float: left;
+        width: 1000px;
+        height: 153px;
+        margin-left: 438px;
+        // background-color: #2c3e50;
+        background-color: #fff;
+        border-radius: 0 0 20px 20px;
+        // opacity: .2;
+        .logo{
+            width: 100%;
+            text-align: center;
+            font-size: 46px;
+            font-weight: 550;
+            margin-top: 22px;
+            color: #A6BAC3;
+        }
+        .navInfo{
+            margin-top: 25px;
+            padding: 0 20px;
+            p{
+                margin-top: 10px;
+                width: 192px;
+                border-bottom: 1px solid #9EA8B1;
+            }
+
+            .nav-list{
+                width: 100%;
+                ul{
+                    width: 50%;
+                    margin: 0 auto;
+                    li{
+                        float: left;
+                        padding: 0 25px;
+                        span{
+                            font-size: 14px;
+                            color: #37566b;
+                            font-weight: 600;
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 
