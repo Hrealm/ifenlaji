@@ -11,19 +11,29 @@
                     <div class="nav-list clearFix">
                         <ul class="clearFix">
                             <li>
-                                <span>首页</span>
+                                <router-link :to="{name: 'index'}">
+                                    <span>首页</span>
+                                </router-link>
                             </li>
                             <li>
-                                <span>分类查询</span>
+                                <router-link :to="{name: 'query'}">
+                                    <span>分类查询</span>
+                                </router-link>
                             </li>
                             <li>
-                                <span>新闻中心</span>
+                                <router-link :to="{name: 'news'}">
+                                    <span>新闻中心</span>
+                                </router-link>
                             </li>
                             <li>
-                                <span>垃圾回收</span>
+                                <router-link :to="{name: 'recycle'}">
+                                    <span>垃圾回收</span>
+                                </router-link>
                             </li>
                             <li>
-                                <span>关于</span>
+                                <router-link :to="{name: 'about'}">
+                                    <span>关于</span>
+                                </router-link>
                             </li>
                         </ul>
                     </div>
