@@ -4,7 +4,8 @@
 		<header>
             <!-- <div class="banner"></div> -->
             <div class="nav">
-                <div class="logo">iFENLAJI</div>
+                <!-- <div class="logo">iFENLAJI</div> -->
+                <div class="logo"></div>
                 <div class="navInfo">
                     <p class="left-line fl"></p>
                     <p class="right-line fr"></p>
@@ -38,6 +39,7 @@
                         </ul>
                     </div>
                 </div>
+                <div class="_end"></div>
             </div>
 		</header>
 
@@ -61,33 +63,31 @@ export default {
     /* margin-top: 60px; */
 }
 header{
+    float: left;
     width: 100%;
     .nav{
-        float: left;
+        position: relative;
         width: 1000px;
-        height: 153px;
-        margin-left: 438px;
-        // background-color: #2c3e50;
+        height: 131px;
+        margin: 0 auto;
+        padding-top: 22px;
         background-color: #fff;
         border-radius: 0 0 20px 20px;
-        // opacity: .2;
         .logo{
-            width: 100%;
-            text-align: center;
-            font-size: 46px;
-            font-weight: 550;
-            margin-top: 22px;
-            color: #A6BAC3;
+            width: 230px;
+            height: 60px;
+            margin: 0 auto;
+            background: url('../static/img/ifenlaji.png') no-repeat;
+            background-size: 100%;
         }
         .navInfo{
-            margin-top: 25px;
+            margin-top: 16px;
             padding: 0 20px;
             p{
                 margin-top: 10px;
                 width: 192px;
                 border-bottom: 1px solid #9EA8B1;
             }
-
             .nav-list{
                 width: 100%;
                 ul{
@@ -104,6 +104,16 @@ header{
                     }
                 }
             }
+        }
+        ._end{
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -2px;
+            margin: 0 auto;
+            width: 150px;
+            height: 6px;
+            background-color: #A1E45A;
         }
     }
 }
