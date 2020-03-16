@@ -96,11 +96,28 @@ header{
                     li{
                         float: left;
                         padding: 0 25px;
-                        span{
-                            font-size: 14px;
+                        a{
                             color: #37566b;
-                            font-weight: 600;
+                            span{
+                                font-size: 14px;
+                                // color: #37566b;
+                                font-weight: 600;
+                            }
                         }
+                        a:hover{
+                            // color: #ffffff;
+                            // background-color: transparent;
+                            
+                            // height: 34px;
+                            // color: #fff;
+                            // background-color: #7EB923;
+                            // border-radius: 15px;
+
+                        }
+
+                    }
+                    li:hover{
+                        // background-image: url('../static/img/nav-bg.png');
                     }
                 }
             }

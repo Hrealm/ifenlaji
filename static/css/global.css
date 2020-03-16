@@ -38,7 +38,7 @@ li{
     color: #7EB923 !important;
 }
 .active::before{
-    content: '';
+    /* content: '';
     display: block;
     position: absolute;
     bottom: 0;
@@ -48,6 +48,6 @@ li{
     width: 36px;
     height: 4px;
     background: #7EB923;
-    border-radius: 50px;
+    border-radius: 50px; */
 }
 

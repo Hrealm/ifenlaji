@@ -10,35 +10,36 @@ import About from '../components/about/about'
 Vue.use(Router)
 
 export default new Router({
-  routes: [
-    {
-      path: '/',
-      redirect: { name: 'index' }
-    },
-    {
-      path: '/ ',
-      name: 'index',
-      component: Index
-    },
-    {
-      path: '/query',
-      name: 'query',
-      component: Query
-    },
-    {
-      path: '/news',
-      name: 'news',
-      component: News
-    },
-    {
-      path: '/recycle',
-      name: 'recycle',
-      component: Recycle
-    },
-    {
-      path: '/about',
-      name: 'about',
-      component: About
-    }
-  ]
+    linkActiveClass: 'active', //动态class
+    routes: [
+        {
+            path: '/',
+            redirect: { name: 'index' }
+        },
+        {
+            path: '/ ',
+            name: 'index',
+            component: Index
+        },
+        {
+            path: '/query',
+            name: 'query',
+            component: Query
+        },
+        {
+            path: '/news',
+            name: 'news',
+            component: News
+        },
+        {
+            path: '/recycle',
+            name: 'recycle',
+            component: Recycle
+        },
+        {
+            path: '/about',
+            name: 'about',
+            component: About
+        }
+    ]
 })
