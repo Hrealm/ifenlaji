@@ -37,17 +37,4 @@ li{
 .active{
     color: #7EB923 !important;
 }
-.active::before{
-    /* content: '';
-    display: block;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: 0 auto;
-    width: 36px;
-    height: 4px;
-    background: #7EB923;
-    border-radius: 50px; */
-}
 
