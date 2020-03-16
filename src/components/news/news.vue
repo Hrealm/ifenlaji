@@ -1,6 +1,7 @@
 <template>
     <div class="container">
-        <h2>新闻中心</h2>
+        <div class="banner"></div>
+
     </div>
 </template>
 
@@ -14,4 +15,14 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.container{
+    width: 100%;
+    min-height: 1000px;
+    .banner{
+        width: 100%;
+        height: 826px;
+        background: url('/static/img/news.jpg') no-repeat;
+        background-position: center top;
+    }
+}
 </style>
