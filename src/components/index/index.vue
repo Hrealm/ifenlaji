@@ -1,6 +1,8 @@
 <template>
     <div class="container">
-        <div class="banner"></div>
+        <div class="banner">
+            <img src="/static/img/index/banner.jpg" alt="">
+        </div>
 
     </div>
 </template>
@@ -21,8 +23,8 @@ export default {
     .banner{
         width: 100%;
         height: 826px;
-        background: url('/static/img/banner.jpg') no-repeat;
-        background-position: center top;
+        // background: url('/static/') no-repeat;
+        // background-position: center top;
     }
 }
 </style>
