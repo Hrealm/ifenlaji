@@ -21,7 +21,7 @@ export default {
     .banner{
         width: 100%;
         height: 826px;
-        background: url('/static/img/about.jpg') no-repeat;
+        background: url('/static/img/index/banner2.jpg') no-repeat;
         background-position: center top;
     }
 }
