@@ -1,9 +1,20 @@
 <template>
     <div class="container">
+        <!-- banner -->
         <div class="banner">
             <div class="ban-bg"></div>
+            <div class="content">
+                <h6>给我一处归宿 还你一片清洁</h6>
+                <h2>从现在开始</h2>
+                <p class="desc">习近平：培养垃圾分类的好习惯 为改善生活环境作努力 <br>
+                 为绿色发展可持续发展作贡献</p>
+                <router-link :to="{name: 'query'}">
+                    <span>Get Started</span>
+                </router-link>
+            </div>
         </div>
 
+        <!--  -->
     </div>
 </template>
 
@@ -38,6 +49,50 @@ export default {
             background: url('/static/img/index/banner_bg.jpg') no-repeat scroll center 0/cover;
             opacity: 0.5;
             z-index: -1;
+        }
+        .content{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            width: 1170px;
+            text-align: center;
+            color: #fff;
+            letter-spacing: 5px;
+            h6{
+                font-size: 16px;
+                margin: 0 0 8px;
+                line-height: 30px;
+                text-transform: uppercase;
+                letter-spacing: 5px;
+                font-weight: 400;
+            }
+            h2{
+                padding: 8px 0;
+                margin: 0 0 8px;
+                font-size: 60px;
+                line-height: 60px;
+                font-weight: 700;
+                letter-spacing: 10px;
+            }
+            .desc{
+                font-weight: 300;
+                font-size: 16px;
+                line-height: 24px;
+                padding: 10px 0px 20px;
+                margin-bottom: 20px;
+            }
+            a{
+                display: inline-block;
+                font-size: 14px;
+                line-height: 30px;
+                text-transform: uppercase;
+                color: #fff;
+                font-weight: 600;
+                background: #f3c300;
+                padding: 5px 30px;
+                letter-spacing: 1.5px;
+            }
         }
     }
 }

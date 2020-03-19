@@ -35,6 +35,7 @@ li{
 }
 /* 待激活样式 */
 .active{
-    color: #7EB923 !important;
+    /* color: #7EB923 !important; */
+    color: #52c5fd !important;
 }
 

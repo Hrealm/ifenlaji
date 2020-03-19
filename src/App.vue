@@ -35,43 +35,6 @@
                 </div>
             </div>
 
-
-
-
-            <!-- <div class="nav">
-                <div class="logo"></div>
-                <div class="nav-list clearFix">
-                    <ul class="clearFix">
-                       <li>
-                            <router-link :to="{name: 'index'}">
-                                <span>首页</span>
-                            </router-link>
-                        </li>
-                        <li>
-                            <router-link :to="{name: 'query'}">
-                                <span>分类查询</span>
-                            </router-link>
-                        </li>
-                        <li>
-                            <router-link :to="{name: 'news'}">
-                                <span>新闻中心</span>
-                            </router-link>
-                        </li>
-                        <li>
-                            <router-link :to="{name: 'recycle'}">
-                                <span>垃圾回收</span>
-                            </router-link>
-                        </li>
-                        <li>
-                            <router-link :to="{name: 'about'}">
-                                <span>关于</span>
-                            </router-link>
-                        </li>
-                    </ul>
-
-                </div>
-            </div> -->
-
 		</header>
 
         <router-view />
@@ -114,8 +77,8 @@ header{
             float: left;
             width: 230px;
             height: 80px;
-            background: url('../static/img/ifenlaji.png') no-repeat 0 10px;
-            background-size: 100%;
+            background: url('../static/img/logo.png') no-repeat 0 50%;
+            background-size: 65%;
         }
         .nav-list{
             float: right;
@@ -125,58 +88,13 @@ header{
                     margin-left: 30px;
                     a{
                         color: #222;
-                        font-size: 16px;
-                        font: 500 16px/80px "Poppins", sans-serif;
+                        font: 550 14px/80px "Poppins", sans-serif;
                     }
                 }
             }
         }
     }
 }
-
-
-
-
-
-// header{
-//     position: absolute;
-//     width: 100%;
-//     height: 162px;
-//     background: url('../static/img/common/navshadow.png') top center no-repeat;
-//     background-size: 100% 100%;
-//     font-size: 16px;
-//     background-color: transparent!important;
-//     z-index: 9999;
-//     top: 0;
-
-//     .nav{
-//         width: 1200px;
-//         height: 60px;
-//         margin: 0 auto;
-//         line-height: 60px;
-//         .logo{
-//             float: left;
-//             width: 230px;
-//             height: 60px;
-//             background: url('../static/img/ifenlaji.png') no-repeat;
-//             background-size: 100%;
-//         }
-//         .nav-list{
-//             float: right;
-//             ul{
-//                 li{
-//                     float: left;
-//                     a{
-//                         padding: 0 20px;
-//                         color: #fff;
-//                         font-size: 16px;
-//                         font-family: HiraginoSansGB-W3,Hiragino Sans GB,"SimSun";
-//                     }
-//                 }
-//             }
-//         }
-//     }
-// }
 
 
 </style>
