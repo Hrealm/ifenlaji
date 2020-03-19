@@ -34,7 +34,7 @@ export default {
     .banner{
         position: relative;
         width: 100%;
-        height: 800px;
+        height: 700px;
         overflow: hidden;
         background: #04091e;
         z-index: 1;
@@ -80,7 +80,7 @@ export default {
                 font-size: 16px;
                 line-height: 24px;
                 padding: 10px 0px 20px;
-                margin-bottom: 20px;
+                margin-bottom: 30px;
             }
             a{
                 display: inline-block;
