@@ -14,7 +14,20 @@
             </div>
         </div>
 
-        <!--  -->
+        <!-- Garbage classification -->
+        <div class="g-con">
+            <div class="g-section">
+                <div class="g-title">
+                    <h2>Garbage Classification</h2>
+                    <p class="g-desc clearFix">
+                        <em class="line fl"></em>
+                        <span>日常生活垃圾分为四类</span>
+                        <em class="line fr"></em>
+                    </p>
+                </div>
+            </div>
+        </div>
+
     </div>
 </template>
 
@@ -92,6 +105,47 @@ export default {
                 background: #f3c300;
                 padding: 5px 30px;
                 letter-spacing: 1.5px;
+            }
+        }
+    }
+    .g-con{
+        width: 100%;
+        padding: 120px 0;
+        background: #fff;
+        .g-section{
+            width: 1140px;
+            padding: 0 15px;
+            margin: 0 auto;
+            .g-title{
+                width: 100%;
+                margin-bottom: 75px;
+                text-align: center;
+                h2{
+                    color: #222222;
+                    font-size: 36px;
+                    line-height: 45px;
+                    font-weight: 600;
+                    font-family: "Poppins", sans-serif;
+                    margin-bottom: 8px;
+                }
+                .g-desc{
+                    width: 360px;
+                    margin: 0 auto;
+                    font-size: 20px;
+                    font-weight: bold;
+                    text-align: center;
+                    color: #777;
+                    line-height: 33px;
+                    margin-top: 15px;
+                    letter-spacing: 2px;
+                    .line{
+                        display: block;
+                        width: 55px;
+                        height: 2px;
+                        margin-top: 16px;
+                        background: #ccc;
+                    }
+                }
             }
         }
     }
