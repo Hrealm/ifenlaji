@@ -110,7 +110,7 @@ export default {
     }
     .g-con{
         width: 100%;
-        padding: 120px 0;
+        padding: 88px 0;
         background: #fff;
         .g-section{
             width: 1140px;
