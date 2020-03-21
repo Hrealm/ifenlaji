@@ -34,7 +34,7 @@ export default {
     .banner{
         position: relative;
         width: 100%;
-        height: 700px;
+        height: 800px;
         overflow: hidden;
         background: #04091e;
         z-index: 1;
