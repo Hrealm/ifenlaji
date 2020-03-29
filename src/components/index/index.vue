@@ -105,9 +105,44 @@
 
         <!-- 关于 about us -->
         <div class="about_con">
-            
+            <div class="a_section">
+                <div class="a_left">
+                    <h2 class="a_title">
+                        About Us
+                    </h2>
+                    <h3>
+                        关于我们
+                        <br>
+                        使命与愿景
+                    </h3>
+                    <!-- <p class="a_desc">
+                        平台致力于帮助每一个人提升环保价值观念。垃圾分类已经成为一个国家发展的必然路径。培养垃圾分类的好习惯，为改善生活环境作努力，为绿色发展可持续发展作贡献是每个公民的责任。随着国家相关垃圾分类政策的实施，每一个人都需要具备相应的垃圾分类知识才能响应国家的政策。因此，本平台将提供高精准的垃圾分类搜索功能；最新最权威的相关资讯及垃圾处理政策；垃圾回收处理商；全球可视化预测...
+                    </p> -->
+                    <p class="a_desc">
+                        平台致力于帮助每一个人提升环保价值观念。垃圾分类已经成为一个国家发展的必然路径。培养垃圾分类的好习惯，为改善生活环境作努力，为绿色发展可持续发展作贡献是每个公民的责任。因此，本平台将提供高精准的垃圾分类搜索功能；最新最权威的相关资讯及垃圾处理政策；垃圾回收处理商；全球可视化预测...
+                    </p>
+                    <a href="" class="a_about">More about us</a>
+                </div>
+                <div class="a_right">
+                    <img class="a_bg" src="../../../static/img/index/about_bg.jpg" alt="">
+                </div>
+            </div>
         </div>
 
+        <!-- 宣传视频 video -->
+        <div class="v_con">
+            <div class="v_section">
+                <div class="v_title">
+                    <h2>Small Animation</h2>
+                    <p class="v_desc">垃圾分类小动画</p>
+                </div>
+                <div class="v_video">
+                    <video controls name="media">
+                        <source src="../../../static/video/b9a296fa-376c-11ea-ac79-02fd9f9a6e20.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -320,11 +355,11 @@ export default {
             .b-dh{
                 display: flex;
                 flex-wrap: wrap;
+                margin-left: -15px;
                 width: 1170px;
                 .b-dh-item{
-                    float: left;
                     margin: 0 15px;
-                    width: 40%;
+                    width: 40.4284191%;
                     border: 1px solid #777777;
                     border-radius: 10px;
                     background-color: rgba(249, 249, 255, 0.102);
@@ -346,13 +381,123 @@ export default {
                     }
                 }
                 .b-dh-item:nth-child(1){
-                    width: 89.5%;
+                    width: 100%;
                 }
             }
         }
     }
     .about_con{
         padding: 100px 0;
+        .a_section{
+            display: flex;
+            align-items: center;
+            width: 1170px;
+            margin: 0 auto;
+            .a_left{
+                box-sizing: border-box;
+                width: 50%;
+                align-items: center;
+                padding: 0 15px;
+                .a_title{
+                    font-size: 36px;
+                    line-height: 50px;
+                    font-weight: 600;
+                    color: #222222;
+                    letter-spacing: 5px;
+                }
+                h3{
+                    font-size: 32px;
+                    line-height: 42px;
+                    font-weight: 600;
+                    letter-spacing: 5px;
+                    color: #222222;
+                    margin-bottom: 10px;
+                }
+                .a_desc{
+                    padding: 18px 0px 30px;
+                    line-height: 28px;
+                    font-size: 15px;
+                    font-family: "Poppins", sans-serif;
+                    font-weight: 300;
+                    color: #777777;
+                    padding-right: 50px;
+                    margin-bottom: 20px;
+                }
+                .a_about{
+                    font-size: 14px;
+                    font-weight: 500;
+                    line-height: 30px;
+                    background: #222222;
+                    color: #fff;
+                    text-transform: uppercase;
+                    padding: 5px 29px;
+                    border-radius: 0px;
+                    position: relative;
+                    z-index: 1;
+                    -webkit-transition: all 0.3s linear;
+                    -o-transition: all 0.3s linear;
+                    transition: all 0.3s linear;
+                    overflow: hidden;
+                    border: 0px;
+                    display: inline-block;
+                    text-align: center;
+                }
+                .a_about:hover{
+                    color: #fff;
+                    background: #f8b100;
+                }
+            }
+            .a_right{
+                box-sizing: border-box;
+                width: 50%;
+                padding: 0 15px;
+                .a_bg{
+                    width: 100%;
+                    height: auto;
+                }
+            }
+        }
+    }
+    .v_con{
+        padding: 88px 0;
+        background: #f9f9ff;
+        .v_section{
+            width: 1140px;
+            padding: 0 15px;
+            margin: 0 auto;
+            .v_title{
+                width: 100%;
+                margin-bottom: 60px;
+                text-align: center;
+                h2{
+                    font-size: 36px;
+                    line-height: 45px;
+                    font-weight: 600;
+                    color: #222222;
+                    margin-bottom: 8px;
+                }
+                .v_desc{
+                    margin: 0 auto;
+                    font-size: 23px;
+                    font-weight: bold;
+                    text-align: center;
+                    color: #777;
+                    line-height: 33px;
+                    letter-spacing: 2px;
+                }
+            }
+            .v_video{
+                // width: 850px;
+                width: 1000PX;
+                margin: 0 auto;
+                
+                video{
+                    width: 100%;
+                    border: none;
+                    // border-radius: 20px;
+                }
+            }
+        }
     }
 }
 </style>
