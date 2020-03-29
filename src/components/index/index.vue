@@ -1,5 +1,6 @@
 <template>
     <div class="container">
+
         <!-- banner -->
         <div class="banner">
             <div class="ban-bg"></div>
@@ -14,7 +15,7 @@
             </div>
         </div>
 
-        <!-- Garbage classification -->
+        <!-- 垃圾分类 Garbage classification -->
         <div class="g-con">
             <div class="g-section">
                 <div class="g-title">
@@ -25,7 +26,86 @@
                         <em class="line fr"></em>
                     </p>
                 </div>
+                <div class="g-class">
+                    <div class="g-class-item g-recycle">
+                        <figure>
+                            <img src="../../../static/img/index/recycle.png" alt="" width="100%" height="100%">
+                        </figure>
+                        <div class="g-desc">
+                            废纸、废塑料、废玻璃制品、废金属、废织物等适宜回收，并且可以回收重复利用的生活废弃物。
+                        </div>
+                        <!-- <div class="txt-btn">
+
+                        </div> -->
+                    </div>
+                    <div class="g-class-item g-wet">
+                        <figure>
+                            <img src="../../../static/img/index/wet.png" alt="" width="100%" height="100%">
+                        </figure>
+                        <div class="g-desc">
+                            易腐垃圾，如食材废弃料、剩饭剩菜、过期食品、水果皮、干果垃圾，废弃植物、中药残渣等生活废弃物品。
+                        </div>
+                    </div>
+                    <div class="g-class-item g-dry">
+                        <figure>
+                            <img src="../../../static/img/index/dry.png" alt="" width="100%" height="100%">
+                        </figure>
+                        <div class="g-desc">
+                            生活中的其它垃圾，并且不属于“湿垃圾”、“有害垃圾”、“可回收垃圾”的垃圾分类，也叫其它垃圾。
+                        </div>
+                    </div>
+                    <div class="g-class-item g-harmful">
+                        <figure>
+                            <img src="../../../static/img/index/harmful.png" alt="" width="100%" height="100%">
+                        </figure>
+                        <div class="g-desc">
+                            废电池、费灯泡灯管、废药品、废油漆，以及有损人身体健康或者对环境直接或者间接会造成污染，有潜在危害的生活用品。
+                        </div>
+                    </div>
+                </div>
             </div>
+        </div>
+
+        <!-- 垃圾分类的好处 Benefits of Garbage classification -->
+        <div class="b-con">
+            <div class="b-con-bg"></div>
+            <div class="b-section">
+                <div class="b-title">
+                    <h2>Benefits of Garbage Classification</h2>
+                    <p class="b-desc">垃圾分类的定义及好处</p>
+                </div>
+                <div class="b-dh">
+                    <div class="b-dh-item">
+                        <h4>什么是垃圾分类</h4>
+                        <p class="b_item_desc">垃圾分类就是将垃圾分门别类地投放，并通过分类地清运和回收使之重新变成资源。从国内外各城市对生活垃圾分类的方法来看，大致都是根据垃圾的成分构成、产生量，结合本地垃圾的资源利用和处理方式来进行分类。如德国一般分为纸、玻璃、金属、塑料等；澳大利亚一般分为可堆肥垃圾，可回收垃圾，不可回收垃圾；日本一般分为可燃垃圾，不可燃垃圾等。</p>
+                    </div>
+                    <div class="b-dh-item">
+                        <h4>减少环境污染</h4>
+                        <!-- <p class="b_item_desc">由于我国垃圾没有进行分类处理，现代的垃圾含有化学物质，有的会导致人们发病率提升。如果通过填埋或者堆放处理垃圾，即使远离生活场所对垃圾进行填埋，并且采用了相应的隔离技术，也难以杜绝有害物质渗透，这些有害物质会随着地球的循环而进入到整个生态圈中，污染水源和土地，通过植物或者动物，最终影响到人们的身体健康。</p> -->
+                        <p class="b_item_desc">由于我国垃圾没有进行分类处理，现代的垃圾含有化学物质，有的会导致人们发病率提升。目前都是采取填埋或者堆放处理垃圾，这也难以杜绝有害物质渗透，进而污染水源和土地，通过植物或者动物，最终影响到人们的身体健康。</p>
+                    </div>
+                    <div class="b-dh-item">
+                        <h4>节省土地资源</h4>
+                        <!-- <p class="b_item_desc">垃圾填埋和垃圾堆放等垃圾处理方式占用土地资源，垃圾填埋场都属于不可复场所，即填埋场不能够重新作为生活小区。且生活垃圾中有些物质不易降解，使土地受到严重侵蚀。将垃圾分类，去掉可以回收的、不易降解的物质，减少垃圾数量达60%以上。</p> -->
+                        <p class="b_item_desc">垃圾填埋和垃圾堆放等垃圾处理方式占用土地资源，垃圾填埋场都属于不可复场所。且生活垃圾中有些物质不易降解，使土地受到严重侵蚀。将垃圾分类，去掉可以回收的、不易降解的物质，减少垃圾数量达60%以上。</p>
+                    </div>
+                    <div class="b-dh-item">
+                        <h4>再生资源的利用</h4>
+                        <!-- <p class="b_item_desc">垃圾的产生是源于人们没有利用好资源，将自己不用的资源当成垃圾抛弃，这种废弃资源的方式对于整个生态系统的损失都是不可以估计的。在垃圾处理之前，通过垃圾分类回收，就可以将垃圾变废为宝，如回收纸张能够保护森林，减少森林资源的浪费；回收果皮蔬菜等生物垃圾，就可以作为绿色肥料，让土地能够更加肥沃。</p> -->
+                        <p class="b_item_desc">垃圾的产生是源于人们没有利用好资源，将自己不用的资源当成垃圾抛弃，这种废弃资源的方式对于整个生态系统的损失都是不可以估计的。在垃圾处理之前，通过垃圾分类回收，就可以将垃圾变废为宝。</p>
+                    </div>
+                    <div class="b-dh-item">
+                        <h4>提高民众价值观念</h4>
+                        <!-- <p class="b_item_desc">垃圾分类是处理垃圾公害的最佳解决方法和最佳的出路。进行垃圾分类已经成为一个国家发展的必然路径。垃圾分类能够使得民众学会节约资源、利用资源，养成良好的生活习惯，提高个人最终的素质素养。一个人能够养成良好的垃圾分类习惯，那么他也就会关注环境保护问题，在生活中注意资源的珍贵性，养成节约资源的习惯。</p> -->
+                        <p class="b_item_desc">垃圾分类是处理垃圾公害的最佳解决方法和最佳的出路。进行垃圾分类已经成为一个国家发展的必然路径。垃圾分类能够使得民众学会节约资源、利用资源，养成良好的生活习惯，提高个人最终的素质素养。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 关于 about us -->
+        <div class="about_con">
+            
         </div>
 
     </div>
@@ -110,7 +190,7 @@ export default {
     }
     .g-con{
         width: 100%;
-        padding: 88px 0;
+        padding: 88px 0 100px;
         background: #fff;
         .g-section{
             width: 1140px;
@@ -118,7 +198,7 @@ export default {
             margin: 0 auto;
             .g-title{
                 width: 100%;
-                margin-bottom: 75px;
+                margin-bottom: 60px;
                 text-align: center;
                 h2{
                     color: #222222;
@@ -147,7 +227,132 @@ export default {
                     }
                 }
             }
+            .g-class{
+                display: flex;
+                width: 1170px;
+                flex-direction: row;
+                align-content: space-around;
+                margin: 0 auto;
+                margin-left: -15px;;
+                .g-class-item{
+                    width: 25%;
+                    height: 335px;
+                    margin: 0 15px;
+                    padding: 0 20px;
+                    border-radius: 10px;
+                    figure{
+                        width: 160px;
+                        height: 160px;
+                        margin: 25px auto 2px;
+                    }
+                    .g-desc{
+                        color: #fff;
+                        text-align: center;
+                        font-size: 16px;
+                        font-weight: 400;
+                        line-height: 25px;
+                        text-indent: 1.5em;
+                        opacity: .9;
+                    }
+                }
+                .g-recycle{
+                    background-color: #215287;
+                }
+                .g-wet{
+                    background-color: #62423A;
+                }
+                .g-dry{
+                    background-color: #2E2C2A;
+                }
+                .g-harmful{
+                    background-color: #EA3E30;
+                }
+            }
         }
+    }
+    .b-con{
+        position: relative;
+        width: 100%;
+        padding: 100px 0;
+        z-index: 1;
+        background: #04091e;
+        overflow: hidden;
+        .b-con-bg{
+            background: url('/static/img/index/b-con-bg.jpg') no-repeat scroll center 0/cover;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            height: 125%;
+            bottom: 0;
+            z-index: -1;
+            transform: translateY(-14.8511px);
+            opacity: 0.15;
+        }
+        .b-section{
+            width: 1140px;
+            padding: 0 15px;
+            margin: 0 auto;
+            .b-title{
+                width: 100%;
+                margin-bottom: 60px;
+                text-align: center;
+                h2{
+                    color: #fff;
+                    font-size: 36px;
+                    line-height: 45px;
+                    font-weight: 600;
+                    font-family: "Poppins", sans-serif;
+                    margin-bottom: 8px;
+                }
+                .b-desc{
+                    width: 360px;
+                    margin: 0 auto;
+                    font-size: 24px;
+                    font-weight: bold;
+                    text-align: center;
+                    color: #777;
+                    line-height: 33px;
+                    margin-top: 15px;
+                    letter-spacing: 2px;
+                }
+            }
+            .b-dh{
+                display: flex;
+                flex-wrap: wrap;
+                width: 1170px;
+                .b-dh-item{
+                    float: left;
+                    margin: 0 15px;
+                    width: 40%;
+                    border: 1px solid #777777;
+                    border-radius: 10px;
+                    background-color: rgba(249, 249, 255, 0.102);
+                    padding: 31px 40px 37px;
+                    color: #fff;
+                    margin-bottom: 30px;
+                    h4{
+                        padding-bottom: 18px;
+                        color: #fff;
+                        font-size: 18px;
+                        line-height: 38px;
+                        font-weight: 600;
+                        margin-bottom: 0px;
+                    }
+                    .b_item_desc{
+                        font-size: 15px;
+                        line-height: 28px;
+                        margin-bottom: 0px;
+                    }
+                }
+                .b-dh-item:nth-child(1){
+                    width: 89.5%;
+                }
+            }
+        }
+    }
+    .about_con{
+        padding: 100px 0;
     }
 }
 </style>
