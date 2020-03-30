@@ -4,7 +4,7 @@
             <div class="ban_bg"></div>
             <div class="searchInput">
                 <input class="input" type="text" placeholder="搜索垃圾相关分类" @keydown="keyDown()">
-                <button class="searchBtn" @click="searchSong()"><i class="icon-sousuo"></i></button>
+                <button class="searchBtn" @click="search()"><i class="icon-sousuo"></i></button>
             </div>
         </div>
 
@@ -14,9 +14,36 @@
 <script>
 export default {
     data() {
-        return {};
+        return {
+            keyword: '',
+            newslist: []
+        };
     },
-    components: {}
+    components: {},
+    methods: {
+        search(){
+            let keyword = document.getElementsByClassName('input')[0].value;
+            this.keyword = keyword;
+            if(keyword.trim() == ""){
+                // this.$alert('搜索内容不能为空哦！', '提示', {
+                //     confirmButtonText: '确定',
+                //     callback: function () {}
+                // });
+                alert('搜索内容不能为空!');
+            }
+            if(keyword.trim()){
+                let url = 'http://api.tianapi.com/txapi/lajifenlei/index?key=7b2a2dd2403726c93b656f436f084341&word=' + keyword;
+                this.axios.get(url).then(res=>{
+                    console.log(res.data)
+                    // this.searchInfo = [];
+                    // this.searchInfo = res.data.data.info;
+                    // if(this.searchInfo.length !== 0) {this.showTip = false;}
+                    // else{this.showTip = true;}
+
+                })
+            }
+        }
+    }
 };
 </script>
 
