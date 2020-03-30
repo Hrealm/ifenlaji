@@ -1,13 +1,27 @@
 <template>
     <div class="container">
+        <!-- banner -->
         <div class="banner">
             <div class="ban_bg"></div>
             <div class="searchInput">
-                <input class="input" type="text" placeholder="搜索垃圾相关分类" @keydown="keyDown()">
+                <input class="input" type="text" placeholder="查询 垃圾相关分类" @keydown="keyDown()">
                 <button class="searchBtn" @click="search()"><i class="icon-sousuo"></i></button>
             </div>
         </div>
 
+        <!-- 结果标题 -->
+
+        <!-- 查询结果 -->
+        <div class="result">
+            <div class="re_item" v-for="(item,index) in newslist" :key="index">
+                <h2 class="re_title">{{item.name}}</h2>
+                <p class="re_type"><b>{{item.type | isType}}</b></p>
+                <p class="re_aipre"><b>智能预判：</b>{{item.aipre ? '预判结果' : '正常结果'}}</p>
+                <p class="re_explain"><b>分类解释：</b>{{item.explain}}</p>
+                <p class="re_contain"><b>包含类型：</b>{{item.contain}}</p>
+                <p class="re_tip"><b>投放提示：</b>{{item.tip}}</p>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -25,28 +39,47 @@ export default {
             let keyword = document.getElementsByClassName('input')[0].value;
             this.keyword = keyword;
             if(keyword.trim() == ""){
-                // this.$alert('搜索内容不能为空哦！', '提示', {
-                //     confirmButtonText: '确定',
-                //     callback: function () {}
-                // });
                 alert('搜索内容不能为空!');
             }
             if(keyword.trim()){
-                let url = 'http://api.tianapi.com/txapi/lajifenlei/index?key=7b2a2dd2403726c93b656f436f084341&word=' + keyword;
+                let url = 'http://api.tianapi.com/txapi/lajifenlei/index?key=7b2a2dd2403726c93b656f436f084341&word=' + keyword +'&num=10';
                 this.axios.get(url).then(res=>{
+                    if(typeof res.data.newslist === 'undefined'){
+                        alert('没有查到相关内容！')
+                        return;
+                    }
                     this.newslist = res.data.newslist;
-                    console.log(res.data)
-
+                    // console.log(this.newslist,res.data.code)
                 })
             }
         },
         keyDown(){
             if(event.keyCode == 13){
                 this.search();
-                // document.getElementsByClassName('searchBtn')[0].click();
             }
         }
-
+    },
+    filters: {
+        isType: function(type){
+            var _type = '';
+            switch(type){
+                case 0 :
+                    _type = '可回收物';
+                    break;
+                case 1 :
+                    _type = '有害垃圾';
+                    break;
+                case 2 :
+                    _type = '湿垃圾（厨余垃圾）';
+                    break;
+                case 3 :
+                    _type = '干垃圾（其他垃圾）';
+                    break;
+                default :
+                    break;
+            }
+            return _type;
+        }
     }
 };
 </script>
@@ -54,7 +87,7 @@ export default {
 <style scoped lang="scss">
 .container{
     width: 100%;
-    min-height: 2000px;
+    min-height: 100vh;
     .banner{
         position: relative;
         width: 100%;
@@ -116,6 +149,38 @@ export default {
             }
             .searchBtn:focus{
                 outline: 0;
+            }
+        }
+    }
+    .result{
+        width: 1170px;
+        padding: 60px 15px;
+        margin: 0 auto;
+        .re_item{
+            box-sizing: border-box;
+            // width: 100%;
+            margin: 0 15px;
+            padding: 25px 30px;
+            margin-bottom: 60px;
+            border-radius: 2px;
+            box-shadow: 0 2px 5px 0 rgba(0,0,0,.1);
+            .re_title{
+                color: #222222;
+                font-size: 32px;
+                line-height: 45px;
+                font-weight: 400;
+                font-family: "Poppins", sans-serif;
+                margin-bottom: 8px;
+            }
+            p{
+                font-size: 16px;
+                color: #777;
+                line-height: 33px;
+                letter-spacing: 2px;
+            }
+            .re_type{
+                color: #f8b100;
+                font-size: 18px;
             }
         }
     }
