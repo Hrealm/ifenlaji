@@ -7,6 +7,12 @@ import News from '../components/news/news'
 import Recycle from '../components/recycle/recycle'
 import About from '../components/about/about'
 
+
+//导入插件axios 挂载属性
+import Axios from 'axios'
+Vue.prototype.axios = Axios;
+
+
 Vue.use(Router)
 
 export default new Router({

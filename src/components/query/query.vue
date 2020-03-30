@@ -34,15 +34,19 @@ export default {
             if(keyword.trim()){
                 let url = 'http://api.tianapi.com/txapi/lajifenlei/index?key=7b2a2dd2403726c93b656f436f084341&word=' + keyword;
                 this.axios.get(url).then(res=>{
+                    this.newslist = res.data.newslist;
                     console.log(res.data)
-                    // this.searchInfo = [];
-                    // this.searchInfo = res.data.data.info;
-                    // if(this.searchInfo.length !== 0) {this.showTip = false;}
-                    // else{this.showTip = true;}
 
                 })
             }
+        },
+        keyDown(){
+            if(event.keyCode == 13){
+                this.search();
+                // document.getElementsByClassName('searchBtn')[0].click();
+            }
         }
+
     }
 };
 </script>
