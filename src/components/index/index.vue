@@ -134,7 +134,7 @@
             <div class="v_section">
                 <div class="v_title">
                     <h2>Small Animation</h2>
-                    <p class="v_desc">垃圾分类小动画</p>
+                    <p class="v_desc">垃圾分类 从我做起</p>
                 </div>
                 <div class="v_video">
                     <video controls name="media">
@@ -143,13 +143,68 @@
                 </div>
             </div>
         </div>
+
+        <!-- 新闻资讯 Latest News & Events -->
+        <div class="n_con">
+            <div class="n_section">
+                <div class="n_title">
+                    <h2>Latest News & Events</h2>
+                    <p class="n_desc">最新新闻和事件</p>
+                </div>
+                <div class="n_wrap">
+                    <div class="n_item" v-for="item in newList" :key="item.id">
+                        <div class="n_cover">
+                            <img :src="item.img" alt="">
+                        </div>
+                        <div class="n_info">
+                            <div class="n_tags">
+                                <span v-for="(item,index) in item.tags" :key="index">{{item}}</span>
+                            </div>
+                            <a href="">
+                                <h4 class="n_title">{{item.title}}</h4>
+                            </a>
+                            <p class="n_desc">{{item.desc}}</p>
+                            <h6 class="n_date">{{item.date}}</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 </template>
 
 <script>
 export default {
     data() {
-        return {};
+        return {
+            newList: [
+                {
+                    id: 1,
+                    img: '/static/img/index/blog-1.jpg',
+                    tags: ['新闻','指导手册'],
+                    title: '生活垃圾分类指导手册',
+                    desc: '生活垃圾分类关系到我们生活环境改善，关系垃圾能不能减量化、资源化、无害化处理，是衡量城市文明程度的标志，也是改善生活方式、提升生活品质。践行绿色发展理念、建设美丽泉城的必然选择...',
+                    date: '2020-03-30'
+                },
+                {
+                    id: 2,
+                    img: '/static/img/index/blog-1.jpg',
+                    tags: ['新闻','垃圾分类'],
+                    title: '生活垃圾分类指导手册',
+                    desc: '生活垃圾分类关系到我们生活环境改善，关系垃圾能不能减量化、资源化、无害化处理，是衡量城市文明程度的标志，也是改善生活方式、提升生活品质。践行绿色发展理念、建设美丽泉城的必然选择...',
+                    date: '2020-03-30'
+                },
+                {
+                    id: 3,
+                    img: '/static/img/index/blog-1.jpg',
+                    tags: ['新闻','垃圾分类'],
+                    title: '生活垃圾分类指导手册',
+                    desc: '生活垃圾分类关系到我们生活环境改善，关系垃圾能不能减量化、资源化、无害化处理，是衡量城市文明程度的标志，也是改善生活方式、提升生活品质。践行绿色发展理念、建设美丽泉城的必然选择...',
+                    date: '2020-03-30'
+                }
+            ]
+        };
     },
     components: {}
 };
@@ -158,7 +213,7 @@ export default {
 <style scoped lang="scss">
 .container{
     width: 100%;
-    height: 5000px;
+    // height: 5000px;
     .banner{
         position: relative;
         width: 100%;
@@ -495,6 +550,115 @@ export default {
                     width: 100%;
                     border: none;
                     // border-radius: 20px;
+                }
+            }
+        }
+    }
+    .n_con{
+        padding: 88px 0;
+        background: #fff;
+        .n_section{
+            width: 1140px;
+            padding: 0 15px;
+            margin: 0 auto;
+            .n_title{
+                width: 100%;
+                margin-bottom: 60px;
+                text-align: center;
+                h2{
+                    font-size: 36px;
+                    line-height: 45px;
+                    font-weight: 600;
+                    color: #222222;
+                    margin-bottom: 8px;
+                    font-family: "Poppins", sans-serif;
+                }
+                .n_desc{
+                    margin: 0 auto;
+                    font-size: 23px;
+                    font-weight: bold;
+                    text-align: center;
+                    color: #777;
+                    line-height: 33px;
+                    letter-spacing: 2px;
+                }
+            }
+            .n_wrap{
+                display: flex;
+                width: 1170px;
+                margin-left: -15px;
+                .n_item{
+                    width: 33.333%;
+                    padding: 0 15px;
+                    .n_cover{
+                        width: 100%;
+                        height: 260px;
+                        overflow: hidden;
+                        img{
+                            transition: all 0.7s linear;
+                        }
+
+                    }
+                    .n_cover:hover img{
+                        transform: scale(1.23) rotate(10deg);
+                    }
+                    .n_info{
+                        padding-top: 30px;
+                        .n_tags{
+                            width: 100%;
+                            height: 31px;
+                            span{
+                                font-size: 12px;
+                                font-weight: 500;
+                                line-height: 20px;
+                                border: 1px solid #eeeeee;
+                                display: inline-block;
+                                padding: 2px 18px;
+                                text-align: center;
+                                color: #222;
+                                margin-right: 10px;
+                                transition: all 0.3s linear;
+                                cursor: pointer;
+                                // transform: translateX(0);
+                            }
+                            span:hover{
+                                color: #000;
+                                background: #f3c300;
+                                // transform: translateY(-5%);
+                            }
+                        }
+                        a{
+                            .n_title{
+                                line-height: 24px;
+                                padding: 12px 0px 15px;
+                                font-size: 18px;
+                                font-weight: 550;
+                                color: #222222;
+                                margin-bottom: 0px;
+                                transition: all 0.3s linear;
+                                text-align: start;
+                            }
+                            .n_title:hover{
+                                color: #52c5fd;
+                            }
+                        }
+                        .n_desc{
+                            margin-bottom: 1rem;
+                            line-height: 24px;
+                            font-size: 14px;
+                            font-family: "Poppins", sans-serif;
+                            font-weight: 300;
+                            color: #777777;
+                        }
+                        .n_date{
+                            font-size: 13px;
+                            line-height: 24px;
+                            font-weight: 400;
+                            color: #222222;
+                            margin-bottom: 0.5rem;
+                            font-family: "Poppins", sans-serif;
+                        }
+                    }
                 }
             }
         }

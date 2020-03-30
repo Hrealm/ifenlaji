@@ -38,6 +38,13 @@
 		</header>
 
         <router-view />
+
+        <footer>
+            <!-- 版权所有 -->
+            <div class="copyright">
+                <p>Copyright  ©  2020 <span>ifenlaji</span> -Inc.All Rights Reserved.</p>
+            </div>
+        </footer>
     </div>
 </template>
 
@@ -91,6 +98,31 @@ header{
                         font: 550 14px/80px "Poppins", sans-serif;
                     }
                 }
+            }
+        }
+    }
+}
+footer{
+    width: 100%;
+    height: 70px;
+    padding:15px 0;
+    background-color: #04091e;
+    .copyright{
+        width: 1170px;
+        height: 100%;
+        padding: 0 15px;
+        margin: 0 auto;
+        text-align: start;
+        p{
+            line-height: 70px;
+            font-size: 16px;
+            font-family: "Poppins", sans-serif;
+            font-weight: 300;
+            color: #CDCED2;
+            // opacity: .8;
+            span{
+                color: #f3c300;
+                opacity: 1;
             }
         }
     }
