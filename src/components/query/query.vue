@@ -9,7 +9,17 @@
             </div>
         </div>
 
+        <!-- 默认显示 -->
+        <div class="hot_q">
+            <p class="hq_title">热门查询</p>
+            <p class="hq_txt">
+                <span v-for="(item,index) in hotQuery" :key="index">{{item}}</span>
+            </p>
+        </div>
+
+
         <!-- 结果标题 -->
+
 
         <!-- 查询结果 -->
         <div class="result">
@@ -30,7 +40,8 @@ export default {
     data() {
         return {
             keyword: '',
-            newslist: []
+            newslist: [],
+            hotQuery: ['笔记本电脑','西瓜','手机','香蕉','奶茶','纸巾','塑料袋','瓶子','杯子','电脑','苹果','瓜子']
         };
     },
     components: {},
@@ -38,11 +49,12 @@ export default {
         search(){
             let keyword = document.getElementsByClassName('input')[0].value;
             this.keyword = keyword;
+            let key = '7b2a2dd2403726c93b656f436f084341';
             if(keyword.trim() == ""){
                 alert('搜索内容不能为空!');
             }
             if(keyword.trim()){
-                let url = 'http://api.tianapi.com/txapi/lajifenlei/index?key=7b2a2dd2403726c93b656f436f084341&word=' + keyword +'&num=10';
+                let url = 'http://api.tianapi.com/txapi/lajifenlei/index?key='+ key +'&word=' + keyword +'&num=10';
                 this.axios.get(url).then(res=>{
                     if(typeof res.data.newslist === 'undefined'){
                         alert('没有查到相关内容！')
@@ -51,13 +63,31 @@ export default {
                     this.newslist = res.data.newslist;
                     // console.log(this.newslist,res.data.code)
                 })
+                    // 发送 POST 请求
+                    //     (function submit() {
+                    //       $.ajax({
+                    //         type: "POST",
+                    //         url: "http://api.tianapi.com/txapi/lajifenlei/index",
+                    //         data: {
+                    //           key: "7b2a2dd2403726c93b656f436f084341",
+                    //           word: "眼镜",
+                    //           num: "10"
+                    //         },
+                    //         // dataType: "JSON",
+                    //         success: function(result) {
+                    //             console.log(result)
+                    //         }
+                    //       });
+                    //     })()
+
             }
         },
         keyDown(){
             if(event.keyCode == 13){
                 this.search();
             }
-        }
+        },
+        
     },
     filters: {
         isType: function(type){
@@ -152,6 +182,36 @@ export default {
             }
         }
     }
+    .hot_q{
+        width: 1110px;
+        padding: 20px 15px;
+        margin: 60px auto 0;
+        box-shadow: 0 2px 5px 0 rgba(0,0,0,.1);
+        border-radius: 2px;
+        .hq_title{
+            color: #222222;
+            font-size: 26px;
+            line-height: 45px;
+            font-weight: 400;
+            font-family: "Poppins", sans-serif;
+            margin-bottom: 8px;
+        }
+        .hq_txt{
+            color: #222;
+            font-size: 16px;
+            line-height: 32px;
+            font-family: "Poppins", sans-serif;
+            span{
+                color: #222;
+                margin: 0 15px;
+                cursor: pointer;
+            }
+            span:hover{
+                color: #f8b100;
+            }
+        }
+    }
+
     .result{
         width: 1170px;
         padding: 60px 15px;
