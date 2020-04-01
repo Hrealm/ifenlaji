@@ -11,12 +11,51 @@
 
         <!-- 默认显示 -->
         <div class="hot_q">
-            <p class="hq_title">热门查询</p>
+            <p class="hq_title hq_">热门查询</p>
             <p class="hq_txt">
-                <span v-for="(item,index) in hotQuery" :key="index">{{item}}</span>
+                <span v-for="(item,index) in hotQuery" :key="index" @click="hotword(item)">{{item}}</span>
             </p>
         </div>
 
+        <!-- 最新更新 -->
+        <div class="hot_q">
+            <p class="hq_title new_">最新更新</p>
+            <p class="hq_txt">
+                <span v-for="(item,index) in Newest" :key="index" @click="hotword(item)">{{item}}</span>
+            </p>
+        </div>
+
+        <!-- 常见可回收物 -->
+        <div class="hot_q">
+            <p class="hq_title rec_">常见可回收物</p>
+            <p class="hq_txt">
+                <span v-for="(item,index) in Newest" :key="index" @click="hotword(item)">{{item}}</span>
+            </p>
+        </div>
+
+        <!-- 常见有害垃圾 -->
+        <div class="hot_q">
+            <p class="hq_title harmful_">常见有害垃圾</p>
+            <p class="hq_txt">
+                <span v-for="(item,index) in Newest" :key="index" @click="hotword(item)">{{item}}</span>
+            </p>
+        </div>
+
+        <!-- 常见湿垃圾 -->
+        <div class="hot_q">
+            <p class="hq_title wet_">常见湿垃圾</p>
+            <p class="hq_txt">
+                <span v-for="(item,index) in Newest" :key="index" @click="hotword(item)">{{item}}</span>
+            </p>
+        </div>
+
+        <!-- 常见干垃圾 -->
+        <div class="hot_q">
+            <p class="hq_title dry_">常见干垃圾</p>
+            <p class="hq_txt">
+                <span v-for="(item,index) in Newest" :key="index" @click="hotword(item)">{{item}}</span>
+            </p>
+        </div>
 
         <!-- 结果标题 -->
 
@@ -41,7 +80,8 @@ export default {
         return {
             keyword: '',
             newslist: [],
-            hotQuery: ['笔记本电脑','西瓜','手机','香蕉','奶茶','纸巾','塑料袋','瓶子','杯子','电脑','苹果','瓜子']
+            hotQuery: ['笔记本电脑','西瓜','手机','香蕉','奶茶','纸巾','塑料袋','瓶子','杯子','电脑','苹果','瓜子'],
+            Newest: ['八宝粥','食品','蚕豆壳','货旧衣服','苹果皮','塑料盒','玻璃瓶','无人机','笔记本电源','碗碟','石膏']
         };
     },
     components: {},
@@ -87,7 +127,17 @@ export default {
                 this.search();
             }
         },
-        
+        hotword(keyword){
+            let url = 'http://api.tianapi.com/txapi/lajifenlei/index?key=7b2a2dd2403726c93b656f436f084341&word=' + keyword +'&num=10';
+            this.axios.get(url).then(res=>{
+                // if(typeof res.data.newslist === 'undefined'){
+                //     alert('没有查到相关内容！')
+                //     return;
+                // }
+                this.newslist = res.data.newslist;
+                // console.log(this.newslist,res.data.code)
+            })
+        }
     },
     filters: {
         isType: function(type){
@@ -195,6 +245,24 @@ export default {
             font-weight: 400;
             font-family: "Poppins", sans-serif;
             margin-bottom: 8px;
+        }
+        .hq_{
+            color: #ed462f;
+        }
+        .new_{
+            color: #3F85F1;
+        }
+        .rec_{
+            color: #2FA858;
+        }
+        .harmful_{
+            color: #ec4335;
+        }
+        .wet_{
+            color: #FCBC27;
+        }
+        .dry_{
+            color: #3F85F1;
         }
         .hq_txt{
             color: #222;
