@@ -91,7 +91,7 @@ export default {
             this.keyword = keyword;
             let key = '7b2a2dd2403726c93b656f436f084341';
             if(keyword.trim() == ""){
-                alert('搜索内容不能为空!');
+                alert('查询内容不能为空!');
             }
             if(keyword.trim()){
                 let url = 'http://api.tianapi.com/txapi/lajifenlei/index?key='+ key +'&word=' + keyword +'&num=10';

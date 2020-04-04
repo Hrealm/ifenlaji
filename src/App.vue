@@ -17,6 +17,16 @@
                             </router-link>
                         </li>
                         <li>
+                            <router-link :to="{name: 'test'}">
+                                <span>分类测试</span>
+                            </router-link>
+                        </li>
+                        <li>
+                            <router-link :to="{name: 'prediction'}">
+                                <span>天气可视化</span>
+                            </router-link>
+                        </li>
+                        <li>
                             <router-link :to="{name: 'news'}">
                                 <span>新闻中心</span>
                             </router-link>

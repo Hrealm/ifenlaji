@@ -3,6 +3,8 @@ import Router from 'vue-router'
 // import HelloWorld from '@/components/HelloWorld'
 import Index from '../components/index/index'
 import Query from '../components/query/query'
+import Test from '../components/test/test'
+import Prediction from '../components/prediction/prediction'
 import News from '../components/news/news'
 import Recycle from '../components/recycle/recycle'
 import About from '../components/about/about'
@@ -31,6 +33,16 @@ export default new Router({
             path: '/query',
             name: 'query',
             component: Query
+        },
+        {
+            path: '/test',
+            name: 'test',
+            component: Test
+        },
+        {
+            path: '/prediction',
+            name: 'prediction',
+            component: Prediction
         },
         {
             path: '/news',
