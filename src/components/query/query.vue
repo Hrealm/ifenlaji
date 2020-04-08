@@ -9,59 +9,8 @@
             </div>
         </div>
 
-        <!-- 默认显示 -->
-        <div class="hot_q">
-            <p class="hq_title hq_">热门查询</p>
-            <p class="hq_txt">
-                <span v-for="(item,index) in hotQuery" :key="index" @click="hotword(item)">{{item}}</span>
-            </p>
-        </div>
-
-        <!-- 最新更新 -->
-        <div class="hot_q">
-            <p class="hq_title new_">最新更新</p>
-            <p class="hq_txt">
-                <span v-for="(item,index) in Newest" :key="index" @click="hotword(item)">{{item}}</span>
-            </p>
-        </div>
-
-        <!-- 常见可回收物 -->
-        <div class="hot_q">
-            <p class="hq_title rec_">常见可回收物</p>
-            <p class="hq_txt">
-                <span v-for="(item,index) in Newest" :key="index" @click="hotword(item)">{{item}}</span>
-            </p>
-        </div>
-
-        <!-- 常见有害垃圾 -->
-        <div class="hot_q">
-            <p class="hq_title harmful_">常见有害垃圾</p>
-            <p class="hq_txt">
-                <span v-for="(item,index) in Newest" :key="index" @click="hotword(item)">{{item}}</span>
-            </p>
-        </div>
-
-        <!-- 常见湿垃圾 -->
-        <div class="hot_q">
-            <p class="hq_title wet_">常见湿垃圾</p>
-            <p class="hq_txt">
-                <span v-for="(item,index) in Newest" :key="index" @click="hotword(item)">{{item}}</span>
-            </p>
-        </div>
-
-        <!-- 常见干垃圾 -->
-        <div class="hot_q">
-            <p class="hq_title dry_">常见干垃圾</p>
-            <p class="hq_txt">
-                <span v-for="(item,index) in Newest" :key="index" @click="hotword(item)">{{item}}</span>
-            </p>
-        </div>
-
-        <!-- 结果标题 -->
-
-
         <!-- 查询结果 -->
-        <div class="result">
+        <div class="result" :style=" !isShow ? 'display: block;' : 'display: none;'">
             <div class="re_item" v-for="(item,index) in newslist" :key="index">
                 <h2 class="re_title">{{item.name}}</h2>
                 <p class="re_type"><b>{{item.type | isType}}</b></p>
@@ -71,6 +20,60 @@
                 <p class="re_tip"><b>投放提示：</b>{{item.tip}}</p>
             </div>
         </div>
+
+
+        <!-- 默认显示 -->
+        <div class="hot_q" :style=" isShow ? 'display: block;' : 'display: none;'">
+            <p class="hq_title hq_">热门查询</p>
+            <p class="hq_txt">
+                <span v-for="(item,index) in hotQuery" :key="index" @click="hotword(item)">{{item}}</span>
+            </p>
+        </div>
+
+        <!-- 最新更新 -->
+        <div class="hot_q last_q" :style=" isShow ? 'display: block;' : 'display: none;'">
+            <p class="hq_title new_">最新更新</p>
+            <p class="hq_txt">
+                <span v-for="(item,index) in Newest" :key="index" @click="hotword(item)">{{item}}</span>
+            </p>
+        </div>
+
+        <!-- 常见可回收物 -->
+        <div class="hot_q _com">
+            <p class="hq_title rec_">常见可回收物</p>
+            <p class="hq_txt">
+                <span v-for="(item,index) in com_re" :key="index" @click="hotword(item)">{{item}}</span>
+            </p>
+        </div>
+
+        <!-- 常见有害垃圾 -->
+        <div class="hot_q _com">
+            <p class="hq_title harmful_">常见有害垃圾</p>
+            <p class="hq_txt">
+                <span v-for="(item,index) in com_harmful" :key="index" @click="hotword(item)">{{item}}</span>
+            </p>
+        </div>
+
+        <!-- 常见湿垃圾 -->
+        <div class="hot_q _com">
+            <p class="hq_title wet_">常见湿垃圾</p>
+            <p class="hq_txt">
+                <span v-for="(item,index) in com_wet" :key="index" @click="hotword(item)">{{item}}</span>
+            </p>
+        </div>
+
+        <!-- 常见干垃圾 -->
+        <div class="hot_q _com">
+            <p class="hq_title dry_">常见干垃圾</p>
+            <p class="hq_txt">
+                <span v-for="(item,index) in com_dry" :key="index" @click="hotword(item)">{{item}}</span>
+            </p>
+        </div>
+
+        <!-- 结果标题 -->
+
+
+
     </div>
 </template>
 
@@ -78,10 +81,15 @@
 export default {
     data() {
         return {
+            isShow: true,
             keyword: '',
             newslist: [],
             hotQuery: ['笔记本电脑','西瓜','手机','香蕉','奶茶','纸巾','塑料袋','瓶子','杯子','电脑','苹果','瓜子'],
-            Newest: ['八宝粥','食品','蚕豆壳','货旧衣服','苹果皮','塑料盒','玻璃瓶','无人机','笔记本电源','碗碟','石膏']
+            Newest: ['八宝粥','食品','蚕豆壳','货旧衣服','苹果皮','塑料盒','玻璃瓶','无人机','笔记本电源','碗碟','石膏'],
+            com_re: ['手机','塑料','牛奶盒','塑料瓶','易拉罐','报纸','玻璃瓶','纸','玻璃','啤酒瓶','衣服','养乐多瓶','塑料盒','电脑','废纸','鼠标','饮料瓶','纸箱','酒瓶','玻璃杯','纸盒','纸张','洗发水瓶','旧衣服','书本','旧鞋子','笔记本电脑','玩具','A4纸','矿泉水瓶','电线','香水瓶','纸板箱','泡沫','纸袋','酸奶盒'],
+            com_harmful:['杀虫喷雾','电池','除草剂罐','废电池','油漆桶','温度计','口服液瓶','杀虫剂','药品铝塑板','灯泡','胶囊药片底板','过期药品','油漆','药瓶','空药瓶','LED灯','x光片','指甲油','口服液瓶子','充电电池','药品','荧光灯','废药品','节能灯','杀虫剂罐','干电池','电池','灯管','底片','农药瓶','手机充电电池','药片','蓄电池'],
+            com_wet: ['小龙虾','毛豆壳','苹果','瓜子壳','玉米','蛋壳','米','香蕉皮','鸡蛋壳','花生壳','桃核','西瓜皮','瓜子','鸡骨头','枣核','蟹壳','香蕉','玉米棒','鱼骨','西瓜','鱼骨头','树叶','苹果核','玉米芯','虾壳','鱼','果皮','果核','花甲','栗子壳','茶叶','螃蟹壳'],
+            com_dry: ['榴莲壳','陶瓷花瓶','塑料袋','玉米叶','口罩','骨头','纸巾','头发','玉米皮','草席','贝壳','被污染的旧衣服','牙刷','卫生纸','烟头','湿纸巾','口红','餐巾纸','猫砂','打火机','指甲','口香糖','过期化妆品','大骨头','饼干包装袋','旧镜子','奶茶杯','陶瓷','回形针','面膜','眼镜']
         };
     },
     components: {},
@@ -101,6 +109,8 @@ export default {
                         return;
                     }
                     this.newslist = res.data.newslist;
+                    this.isShow = false;
+                    
                     // console.log(this.newslist,res.data.code)
                 })
                     // 发送 POST 请求
@@ -130,12 +140,13 @@ export default {
         hotword(keyword){
             let url = 'http://api.tianapi.com/txapi/lajifenlei/index?key=7b2a2dd2403726c93b656f436f084341&word=' + keyword +'&num=10';
             this.axios.get(url).then(res=>{
-                // if(typeof res.data.newslist === 'undefined'){
-                //     alert('没有查到相关内容！')
-                //     return;
-                // }
+                if(typeof res.data.newslist === 'undefined'){
+                    alert('没有查到相关内容！')
+                    return;
+                }
                 this.newslist = res.data.newslist;
-                // console.log(this.newslist,res.data.code)
+                this.isShow = false;
+
             })
         }
     },
@@ -265,24 +276,35 @@ export default {
             color: #3F85F1;
         }
         .hq_txt{
+            padding-left: 23px;
+            padding-right: 20px;
             color: #222;
             font-size: 16px;
             line-height: 32px;
             font-family: "Poppins", sans-serif;
             span{
                 color: #222;
-                margin: 0 15px;
+                margin: 0 10px;
                 cursor: pointer;
+            }
+            span:nth-child(1){
+                margin-left: 0;
             }
             span:hover{
                 color: #f8b100;
             }
         }
     }
+    .last_q{
+        margin-bottom: 60px;
+    }
+    ._com{
+        margin: 0 auto 60px;
+    }
 
     .result{
         width: 1170px;
-        padding: 60px 15px;
+        padding: 60px 15px 0;
         margin: 0 auto;
         .re_item{
             box-sizing: border-box;
