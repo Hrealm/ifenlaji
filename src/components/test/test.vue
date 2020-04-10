@@ -39,8 +39,26 @@
 
         <!-- 成绩单 -->
         <div class="transcript" v-if="state === 'end'">
-            <h2 class="card-title">成绩单</h2>
-            <div>分数：{{ score }}</div>
+            <div class="ts_wrap">
+                <h2 class="card-title">提交结果</h2>
+                <div class="result">分数：{{ score }}</div>
+                <ul class="answer-list">
+                    <li class="ts_item"
+                        :class="{success: isSuccess(q)}"
+                        v-for="(q, index) in forms" :key="index">
+                        <h3>问题：{{ q.content }}</h3>
+                        <h3>答案：{{ numberToLetter(q.answer) }}. {{ q.options[q.answer] }}</h3>
+                        <div v-if="q.type === 'single'">
+                            <div v-if="q.userAnswer || q.userAnswer === 0">
+                                <div> 你的回答：{{ numberToLetter(q.userAnswer) }}. {{ q.options[q.userAnswer] }}</div>
+                            </div>
+                            <div v-else>你还没有回答</div>
+                        </div>
+                    </li>
+                </ul>
+                <el-button type="primary" @click="restart">再来一次</el-button>
+            </div>
+
         </div>
     </div>
 </template>
@@ -214,6 +232,29 @@ export default {
                 });          
             });
         },
+        isSuccess(form) {
+            // console.log('判断')
+            if (form.type === 'single') {
+                // console.log('单选题' + form.userAnswer === form.answer)
+                return form.userAnswer === form.answer
+            }
+            if (form.type !== 'fill' && !form.userAnswer) {
+                return false
+            }
+            return false
+        },
+        numberToLetter(number) {
+            let arr = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+            return arr[number]
+        },
+        restart(){
+            // 清空回答
+            for (let form of this.forms) {
+                form.userAnswer = null
+            }
+            this.formIndex = 0
+            this.state = 'start'
+        }
 
     }
 }
@@ -323,6 +364,37 @@ export default {
             }
             .btn_row{
                 margin: 20px 0 5px;
+            }
+        }
+    }
+    .transcript{
+        width: 1110px;
+        padding: 60px 15px;
+        margin: 0 auto;
+        .ts_wrap{
+            padding: 16px 26px;
+            box-shadow: 0 1px 6px rgba(0, 0, 0, 0.117647), 0 1px 4px rgba(0, 0, 0, 0.117647);
+            .card-title{
+                font-size: 26px;
+                margin: 16px 0;
+                // padding-left: 10px;
+                font-weight: inherit;
+            }
+            .result{
+                // padding-left: 10px;
+                margin: 16px 0;
+            }
+            .answer-list{
+                .ts_item{
+                    padding: 16px;
+                    line-height: 32px;
+                    margin-bottom: 16px;
+                    border: 1px solid #55a532;
+                    h3{
+                        font-size: 18px;
+                        font-weight: inherit;
+                    }
+                }
             }
         }
     }
