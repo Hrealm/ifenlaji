@@ -41,22 +41,27 @@
         <div class="transcript" v-if="state === 'end'">
             <div class="ts_wrap">
                 <h2 class="card-title">提交结果</h2>
-                <div class="result">分数：{{ score }}</div>
+                <div class="result">本次测试分数为：{{ score }} 分</div>
                 <ul class="answer-list">
                     <li class="ts_item"
-                        :class="{success: isSuccess(q)}"
-                        v-for="(q, index) in forms" :key="index">
+                        v-for="(q, index) in forms" :key="index"
+                        :class="{success: isSuccess(q)}">
                         <h3>问题：{{ q.content }}</h3>
                         <h3>答案：{{ numberToLetter(q.answer) }}. {{ q.options[q.answer] }}</h3>
                         <div v-if="q.type === 'single'">
                             <div v-if="q.userAnswer || q.userAnswer === 0">
                                 <div> 你的回答：{{ numberToLetter(q.userAnswer) }}. {{ q.options[q.userAnswer] }}</div>
                             </div>
-                            <div v-else>你还没有回答</div>
+                            <div v-else class="y_an">你还没有回答</div>
+                        </div>
+                        <div class="ts_icon">
+                            <i :class="isSuccess(q) ? 'el-icon-circle-check ts_true':'el-icon-circle-close ts_false'"></i>
                         </div>
                     </li>
                 </ul>
-                <el-button type="primary" @click="restart">再来一次</el-button>
+                <div class="res">
+                    <el-button type="primary" icon="el-icon-thumb" @click="restart">再来一次</el-button>
+                </div>
             </div>
 
         </div>
@@ -238,9 +243,6 @@ export default {
                 // console.log('单选题' + form.userAnswer === form.answer)
                 return form.userAnswer === form.answer
             }
-            if (form.type !== 'fill' && !form.userAnswer) {
-                return false
-            }
             return false
         },
         numberToLetter(number) {
@@ -253,7 +255,8 @@ export default {
                 form.userAnswer = null
             }
             this.formIndex = 0
-            this.state = 'start'
+            this.form = this.forms[this.formIndex]
+            this.state = 'start'            
         }
 
     }
@@ -376,25 +379,60 @@ export default {
             box-shadow: 0 1px 6px rgba(0, 0, 0, 0.117647), 0 1px 4px rgba(0, 0, 0, 0.117647);
             .card-title{
                 font-size: 26px;
-                margin: 16px 0;
+                margin: 10px 0;
                 // padding-left: 10px;
                 font-weight: inherit;
+                text-align: center;
             }
             .result{
                 // padding-left: 10px;
-                margin: 16px 0;
+                margin: 20px;
+                text-align: center;
             }
             .answer-list{
                 .ts_item{
+                    position: relative;
                     padding: 16px;
+                    padding-left: 25px;
                     line-height: 32px;
                     margin-bottom: 16px;
-                    border: 1px solid #55a532;
+                    border-radius: 8px;
+                    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.07647), 0 1px 4px rgba(0, 0, 0, 0.117647);
                     h3{
                         font-size: 18px;
                         font-weight: inherit;
                     }
+                    .y_an{
+                        font-size: 18px;
+                    }
+                    .ts_icon{
+                        position:absolute;
+                        top: 50%;
+                        right:3%;
+                        transform: translateY(-50%);
+                        text-align: center;
+                        i{
+                            font-size: 52px;
+                            margin-top: 5px;
+                        }
+                        .ts_true{
+                            color: #55a532;
+                            // background-color: #55a532;
+                            // color: #fff;
+                            // border-radius: 50%;
+                        }
+                        .ts_false{
+                            color: red;
+                            // background-color: red;
+                            // color: #fff;
+                            // border-radius: 50%;
+                        }
+                    }
                 }
+            }
+            .res{
+                margin: 25px 0 10px;
+                text-align: center;
             }
         }
     }
