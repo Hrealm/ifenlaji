@@ -33,6 +33,7 @@
                     <el-button type="plain" size="small" @click="prevForm" :disabled="formIndex === 0">上一题</el-button>
                     <el-button type="primary" size="small" @click="nextForm" :disabled="formIndex === forms.length - 1">下一题</el-button>
                     <el-button type="success" size="small" @click="commit">交 卷</el-button>
+                    <el-button type="plain" size="small" icon="el-icon-refresh" @click="restart" >刷新题库</el-button>
                 </div>
             </div>
         </div>
@@ -46,7 +47,7 @@
                     <li class="ts_item"
                         v-for="(q, index) in forms" :key="index"
                         :class="{success: isSuccess(q)}">
-                        <h3>问题：{{ q.content }}</h3>
+                        <h3>问题 {{index+1}}：{{ q.content }}</h3>
                         <h3>答案：{{ numberToLetter(q.answer) }}. {{ q.options[q.answer] }}</h3>
                         <div v-if="q.type === 'single'">
                             <div v-if="q.userAnswer || q.userAnswer === 0">
@@ -157,6 +158,10 @@ export default {
             ],
             form: {},
             state: 'start', // 'start', 'end',
+            com_re: ['手机','塑料','牛奶盒','塑料瓶','易拉罐','报纸','玻璃瓶','纸','玻璃','啤酒瓶','衣服','养乐多瓶','塑料盒','电脑','废纸','鼠标','饮料瓶','纸箱','酒瓶','玻璃杯','纸盒','纸张','洗发水瓶','旧衣服','书本','旧鞋子','笔记本电脑','玩具','A4纸','矿泉水瓶','电线','香水瓶','纸板箱','泡沫','纸袋','酸奶盒'],
+            com_harmful:['杀虫喷雾','电池','除草剂罐','废电池','油漆桶','温度计','口服液瓶','杀虫剂','药品铝塑板','灯泡','胶囊药片底板','过期药品','油漆','药瓶','空药瓶','LED灯','x光片','指甲油','口服液瓶子','充电电池','药品','荧光灯','废药品','节能灯','杀虫剂罐','干电池','电池','灯管','底片','农药瓶','手机充电电池','药片','蓄电池'],
+            com_wet: ['小龙虾','毛豆壳','苹果','瓜子壳','玉米','蛋壳','米','香蕉皮','鸡蛋壳','花生壳','桃核','西瓜皮','瓜子','鸡骨头','枣核','蟹壳','香蕉','玉米棒','鱼骨','西瓜','鱼骨头','树叶','苹果核','玉米芯','虾壳','鱼','果皮','果核','花甲','栗子壳','茶叶','螃蟹壳'],
+            com_dry: ['榴莲壳','陶瓷花瓶','塑料袋','玉米叶','口罩','骨头','纸巾','头发','玉米皮','草席','贝壳','被污染的旧衣服','牙刷','卫生纸','烟头','湿纸巾','口红','餐巾纸','猫砂','打火机','指甲','口香糖','过期化妆品','大骨头','饼干包装袋','旧镜子','奶茶杯','陶瓷','回形针','面膜','眼镜']
         }
     },
     created(){
@@ -231,10 +236,10 @@ export default {
                     message: '提交成功'
                 });
             }).catch(() => {
-                this.$message({
-                    type: 'info',
-                    message: '已取消'
-                });          
+                // this.$message({
+                //     type: 'info',
+                //     message: '已取消'
+                // });          
             });
         },
         isSuccess(form) {
@@ -250,13 +255,37 @@ export default {
             return arr[number]
         },
         restart(){
-            // 清空回答
+            // 清空回答-并获取随机题库
             for (let form of this.forms) {
                 form.userAnswer = null
+                // 获取垃圾类别随机数
+                let r_category = Math.floor(Math.random() * 4);
+                // 根据随机数获取相应垃圾作为题目
+                switch(r_category){
+                    case 0 :
+                        form.answer = 0;
+                        form.content = this.com_re[Math.floor(Math.random() * this.com_re.length)];
+                        break;
+                    case 1 :
+                        form.answer = 1;
+                        form.content = this.com_harmful[Math.floor(Math.random() * this.com_harmful.length)];
+                        break;
+                    case 2 :
+                        form.answer = 2;
+                        form.content = this.com_wet[Math.floor(Math.random() * this.com_wet.length)];
+                        break;
+                    case 3 :
+                        form.answer = 3;
+                        form.content = this.com_dry[Math.floor(Math.random() * this.com_dry.length)];
+                        break;
+                    default :
+                        break;
+                }
             }
             this.formIndex = 0
             this.form = this.forms[this.formIndex]
-            this.state = 'start'            
+            this.state = 'start'      
+            // console.log(this.forms);
         }
 
     }
