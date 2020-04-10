@@ -4,21 +4,43 @@
         <div class="banner">
             <div class="ban_bg"></div>
         </div>
-        <!-- test content -->
-        <div class="test_con">
+        <!-- 答题内容 -->
+        <div class="test_con" v-if="state === 'start'">
             <!-- 答题卡 -->
             <div class="answerCard">
                 <h2 class="card-title">答题卡</h2>
-                <ul class="answer-list">
+                <ul class="answer-list clearFix">
                     <li class="item" v-for="(q, index) in forms" :key="index">
-                        
-                     <!-- <ui-raised-button class="round-btn unknown"
-                                      :class="{finish: isDone(q), current: index === formIndex}"
-                                      :label="'' + (index + 1)"
-                                      @click="selectIndex(index)" /> -->
+                        <button class="round-btn unknown" :class="{finish: isDone(q), current: index === formIndex}" @click="selectIndex(index)">
+                            <span class="btn_txt">{{''+(index + 1)}}</span>
+                        </button>
                     </li>
                 </ul>
             </div>
+            <!-- 答题区 -->
+            <div class="exam_box">
+                <em class="ex_type">{{ type }}</em>
+                <h3 class="ex_title">{{ form.content }}</h3>
+                <ul class="ex_options">
+                    <li class="ex_item" v-for="(option, index) in form.options"
+                        :key="index"
+                        :class="{selected: isSelected(form, index)}"
+                        @click="doOption(index)">
+                        {{ option }}
+                    </li>
+                </ul>
+                <div class="btn_row">
+                    <el-button type="plain" size="small" @click="prevForm" :disabled="formIndex === 0">上一题</el-button>
+                    <el-button type="primary" size="small" @click="nextForm" :disabled="formIndex === forms.length - 1">下一题</el-button>
+                    <el-button type="success" size="small" @click="commit">交 卷</el-button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 成绩单 -->
+        <div class="transcript" v-if="state === 'end'">
+            <h2 class="card-title">成绩单</h2>
+            <div>分数：{{ score }}</div>
         </div>
     </div>
 </template>
@@ -76,9 +98,70 @@ export default {
                     options: ['可回收物', '有害垃圾', '湿垃圾', '干垃圾'],
                     answer: 0,
                     userAnswer: null
+                },
+                {
+                    id: '6',
+                    type: 'single',
+                    content: '花生壳',
+                    options: ['可回收物', '有害垃圾', '湿垃圾', '干垃圾'],
+                    answer: 0,
+                    userAnswer: null
+                },
+                {
+                    id: '7',
+                    type: 'single',
+                    content: '枣核',
+                    options: ['可回收物', '有害垃圾', '湿垃圾', '干垃圾'],
+                    answer: 0,
+                    userAnswer: null
+                },
+                {
+                    id: '8',
+                    type: 'single',
+                    content: '打火机',
+                    options: ['可回收物', '有害垃圾', '湿垃圾', '干垃圾'],
+                    answer: 0,
+                    userAnswer: null
+                },
+                {
+                    id: '9',
+                    type: 'single',
+                    content: '茶叶',
+                    options: ['可回收物', '有害垃圾', '湿垃圾', '干垃圾'],
+                    answer: 0,
+                    userAnswer: null
                 }
-            ]
+            ],
+            form: {},
+            state: 'start', // 'start', 'end',
         }
+    },
+    created(){
+        this.form = this.forms[this.formIndex];
+    },
+    computed: {
+        type() {
+            let types = {
+                single: '单选题',
+                multiple: '多选题',
+                fill: '填空题',
+                aq: '问答题',
+                judgment: '判断题',
+                join: '连线题',
+                code: '编程题' // Attachment
+            }
+            return types[this.form.type]
+        },
+        score() {
+            let successCount = 0
+            for (let form of this.forms) {
+                if (form.userAnswer === form.answer) {
+                    successCount++
+                }
+            }
+            return parseInt(100 * successCount / this.forms.length)
+            // return 10
+        },
     },
     components: {},
     methods: {
@@ -86,26 +169,52 @@ export default {
             if (form.type === 'single') {
                 return form.userAnswer || form.userAnswer === 0
             }
-            // if (form.type === 'multiple') {
-            //     return form.userAnswer && form.userAnswer.length
-            // }
-            // if (form.type === 'aq') {
-            //     return form.userAnswer
-            // }
-            // if (form.type === 'fill') {
-            //     let answer = this.getFillUserAnswer(form)
-            //     for (let item of answer) {
-            //         if (!item) {
-            //             return false
-            //         }
-            //     }
-            //     return true
-            // }
-            // if (form.type === 'judgment') {
-            //     return form.userAnswer === true || form.userAnswer === false
-            // }
             return false
-        }
+        },
+        selectIndex(index) {
+            this.formIndex = index
+            this.form = this.forms[this.formIndex]
+        },
+        isSelected(form, index) {
+            if (form.type === 'single') {
+                return form.userAnswer === index
+            }
+            return false
+        },
+        doOption(index){
+            // 用户答案传入forms 题库
+            this.forms[this.formIndex].userAnswer = index
+            // console.log(this.forms.userAnswer,this.forms);
+        },
+        prevForm() {
+            this.formIndex--
+            this.form = this.forms[this.formIndex]
+        },
+        nextForm() {
+            this.formIndex++
+            this.form = this.forms[this.formIndex]
+        },
+        commit(){
+            this.$confirm('交卷后将不可在修改, 是否继续?', '提示', {
+                confirmButtonText: '确定',
+                cancelButtonText: '取消',
+                type: 'warning'
+            }).then(() => {
+                this.state = 'end'
+                // console.log(this.forms);
+                
+                this.$message({
+                    type: 'success',
+                    message: '提交成功'
+                });
+            }).catch(() => {
+                this.$message({
+                    type: 'info',
+                    message: '已取消'
+                });          
+            });
+        },
+
     }
 }
 </script>
@@ -141,6 +250,79 @@ export default {
                 font-weight: 400;
                 font-size: 18px;
                 margin-bottom: 16px;
+            }
+            .answer-list{
+                .item{
+                    float: left;
+                    margin-right: 16px;
+                    margin-bottom: 16px;
+                    .round-btn{
+                        width: 48px;
+                        height: 48px;
+                        min-width: inherit;
+                        border-radius: 50%;
+                        border: none;
+                        cursor: pointer;
+                        background-color: #fff;
+                        box-shadow: 0 1px 6px rgba(0,0,0,.117647), 0 1px 4px rgba(0,0,0,.117647);
+                        .btn_txt{
+                            font-size: 15px;
+                        }
+                    }
+                    .round-btn:hover{
+                        background-color: #E5E5E5;
+                    }
+                    .round-btn:focus{
+                        outline:none;
+                    }
+                    .current{
+                        border: 1px solid #55a532;
+                        // border: 1px solid #000;
+                    }
+                    .finish{
+                        color: #fff;
+                        background-color: #55a532;
+                    }
+                    .finish:hover{
+                        background-color: #55a532;
+                        opacity: .7;
+                    }
+                }
+            }
+        }
+        .exam_box{
+            padding: 16px;
+            margin-bottom: 24px;
+            box-shadow: 0 1px 6px rgba(0, 0, 0, 0.117647), 0 1px 4px rgba(0, 0, 0, 0.117647);
+            .ex_type{
+                padding: 4px 7px;
+                line-height: 1.5;
+                font-size: 12px;
+                font-style: normal;
+                background-color: #bdbdbd;
+                color: #fff;
+                border-radius: 3px;
+                overflow: hidden;
+            }
+            .ex_title{
+                font-size: 30px;
+                margin: 16px 0;
+                padding-left: 8px;
+                font-weight: inherit;
+            }
+            .ex_options{
+                .ex_item{
+                    padding: 16px;
+                    margin-bottom: 8px;
+                    cursor: pointer;
+                    border: 1px solid #f1f1f1;
+                }
+                .selected{
+                    border: 1px solid #55a532;
+                }
+            }
+            .btn_row{
+                margin: 20px 0 5px;
             }
         }
     }

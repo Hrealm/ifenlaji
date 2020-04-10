@@ -99,13 +99,29 @@ export default {
             this.keyword = keyword;
             let key = '7b2a2dd2403726c93b656f436f084341';
             if(keyword.trim() == ""){
-                alert('查询内容不能为空!');
+                this.$alert('查询内容不能为空!', '提示', {
+                    confirmButtonText: '确定',
+                    callback: action => {
+                        // this.$message({
+                        //     type: 'info',
+                        //     message: `action: ${ action }`
+                        // });
+                    }
+                });
             }
             if(keyword.trim()){
                 let url = 'http://api.tianapi.com/txapi/lajifenlei/index?key='+ key +'&word=' + keyword +'&num=10';
                 this.axios.get(url).then(res=>{
                     if(typeof res.data.newslist === 'undefined'){
-                        alert('没有查到相关内容！')
+                        this.$alert('没有查到相关内容！', '提示', {
+                            confirmButtonText: '确定',
+                            callback: action => {
+                                // this.$message({
+                                //     type: 'info',
+                                //     message: `action: ${ action }`
+                                // });
+                            }
+                        });
                         return;
                     }
                     this.newslist = res.data.newslist;
