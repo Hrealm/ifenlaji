@@ -354,10 +354,12 @@ export default {
                     }
                     .finish{
                         color: #fff;
-                        background-color: #55a532;
+                        // background-color: #55a532;
+                        background-color: #67C23A;
                     }
                     .finish:hover{
-                        background-color: #55a532;
+                        // background-color: #55a532;
+                        background-color: #67C23A;
                         opacity: .7;
                     }
                 }
