@@ -95,6 +95,7 @@ export default {
     components: {},
     methods: {
         search(){
+            let url = 'http://api.tianapi.com/txapi/lajifenlei/index';
             let keyword = document.getElementsByClassName('input')[0].value;
             this.keyword = keyword;
             let key = '7b2a2dd2403726c93b656f436f084341';
@@ -102,50 +103,29 @@ export default {
                 this.$alert('查询内容不能为空!', '提示', {
                     confirmButtonText: '确定',
                     callback: action => {
-                        // this.$message({
-                        //     type: 'info',
-                        //     message: `action: ${ action }`
-                        // });
                     }
                 });
             }
             if(keyword.trim()){
-                let url = 'http://api.tianapi.com/txapi/lajifenlei/index?key='+ key +'&word=' + keyword +'&num=10';
-                this.axios.get(url).then(res=>{
+                this.axios({
+                    url: url,
+                    method: 'POST',
+                    data: `key=${key}&word=${keyword}&num=10`,
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+                    }
+                }).then(res=>{
                     if(typeof res.data.newslist === 'undefined'){
                         this.$alert('没有查到相关内容！', '提示', {
                             confirmButtonText: '确定',
                             callback: action => {
-                                // this.$message({
-                                //     type: 'info',
-                                //     message: `action: ${ action }`
-                                // });
                             }
                         });
                         return;
                     }
                     this.newslist = res.data.newslist;
                     this.isShow = false;
-                    
-                    // console.log(this.newslist,res.data.code)
                 })
-                    // 发送 POST 请求
-                    //     (function submit() {
-                    //       $.ajax({
-                    //         type: "POST",
-                    //         url: "http://api.tianapi.com/txapi/lajifenlei/index",
-                    //         data: {
-                    //           key: "7b2a2dd2403726c93b656f436f084341",
-                    //           word: "眼镜",
-                    //           num: "10"
-                    //         },
-                    //         // dataType: "JSON",
-                    //         success: function(result) {
-                    //             console.log(result)
-                    //         }
-                    //       });
-                    //     })()
-
             }
         },
         keyDown(){

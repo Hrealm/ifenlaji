@@ -183,7 +183,7 @@ export default {
 
                 {
                     id: 3,
-                    img: '/static/img/index/news3.png',
+                    img: '/static/img/index/blog-1.jpg',
                     tags: ['疫情防控','垃圾分类'],
                     title: '疫情防控不停歇 垃圾分类要同行',
                     desc: '2020年是全区生活垃圾分类工作决战决胜的关键年，将围绕提质扩面，持续深入推进农村生活垃圾分类质量，在现有基础上不断提升群众的参与率和分类的正确率...',
@@ -191,7 +191,7 @@ export default {
                 },
                 {
                     id: 2,
-                    img: '/static/img/index/news2.png',
+                    img: '/static/img/index/blog-1.jpg',
                     tags: ['新闻','垃圾分类'],
                     title: '中国垃圾分类进入“强制时代”',
                     desc: '央视网消息：今年以来，北京、上海、广东等超大城市先后就生活垃圾管理进行了修法或立法，通过约束机制，逐步的改变居民随意投放垃圾的习惯，业内人士指出垃圾分类立法重点是树立敬畏意识...',
@@ -199,7 +199,7 @@ export default {
                 },
                 {
                     id: 1,
-                    img: '/static/img/index/news1.png',
+                    img: '/static/img/index/blog-1.jpg',
                     tags: ['新闻','指导手册'],
                     title: '生活垃圾分类指导手册',
                     desc: '生活垃圾分类关系到我们生活环境改善，关系垃圾能不能减量化、资源化、无害化处理，是衡量城市文明程度的标志，也是改善生活方式、提升生活品质。践行绿色发展理念、建设美丽泉城的必然选择...',
@@ -232,7 +232,7 @@ export default {
             width: 100%;
             // height: 1000px;
             height: 800px;
-            background: url('/static/img/index/banner_bg.jpg') no-repeat scroll center 0/cover;
+            background: url('/static/img/index/--banner_bg.jpg') no-repeat scroll center 0/cover;
             opacity: 0.5;
             z-index: -1;
         }
