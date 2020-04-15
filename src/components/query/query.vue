@@ -78,6 +78,7 @@
 </template>
 
 <script>
+import qs from 'qs'
 export default {
     data() {
         return {
@@ -107,10 +108,16 @@ export default {
                 });
             }
             if(keyword.trim()){
+                var data = qs.stringify({
+                    "key": key,
+                    "word": keyword,
+                    "num": 10
+                })
                 this.axios({
                     url: url,
                     method: 'POST',
-                    data: `key=${key}&word=${keyword}&num=10`,
+                    // data: `key=${key}&word=${keyword}&num=10`,
+                    data: data,
                     headers: {
                         'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
                     }
