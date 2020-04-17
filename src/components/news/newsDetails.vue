@@ -42,7 +42,7 @@ export default {
     },
     created(){
         let id = this.$route.query.id;
-        let url = '/zxwebsite//zxnews/content/manager/news?fId=' + id;
+        let url = 'http://mgr.gdzxjy.cn/zxwebsite//zxnews/content/manager/news?fId=' + id;
         this.axios.get(url).then(res => {
             this.newsDetails = res.data.news;
             this.time = this.newsDetails.fReleaseTime;

@@ -103,7 +103,7 @@ export default {
         },
         // 获取新闻列表
         getNewsContent(){
-            let url = '/zxwebsite//zxnews/content/manager/newsList?page=1&pagesize=' + this.pageSize;
+            let url = 'http://mgr.gdzxjy.cn/zxwebsite//zxnews/content/manager/newsList?page=1&pagesize=' + this.pageSize;
             this.axios.get(url).then(res => {
                 let array = res.data.Rows;
                 if(this.pageSize !== 6) array.splice(0,this.pageSize-6);

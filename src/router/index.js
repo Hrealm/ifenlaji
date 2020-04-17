@@ -6,6 +6,7 @@ import Query from '../components/query/query'
 import Test from '../components/test/test'
 import Prediction from '../components/prediction/prediction'
 import News from '../components/news/news'
+import NewsDetails from '../components/news/newsDetails'
 import Recycle from '../components/recycle/recycle'
 import About from '../components/about/about'
 
@@ -48,6 +49,11 @@ export default new Router({
             path: '/news',
             name: 'news',
             component: News
+        },
+        {
+            path: '/newsDetails',
+            name: 'newsDetails',
+            component: NewsDetails
         },
         {
             path: '/recycle',
