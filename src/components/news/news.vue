@@ -36,7 +36,7 @@
                 </ul>
                 <!-- 新闻动态 -->
                 <div class="news-dynamic">
-                    <h2>新闻动态</h2>
+                    <h2>最新资讯</h2>
                     <h3>logistics redefined</h3>
                 </div>
                 <!-- 分页请求 -->
@@ -71,7 +71,8 @@ export default {
         };
     },
     created(){
-        let url = 'http://mgr.gdzxjy.cn/zxwebsite//zxnews/content/manager/newsList?page=1&pagesize=' + this.pageSize;
+        // let url = 'http://mgr.gdzxjy.cn/zxwebsite//zxnews/content/manager/newsList?page=1&pagesize=' + this.pageSize;
+        let url = 'http://localhost:8899/inewsList';
         this.axios.get(url).then(res => {
             this.newsList = res.data.Rows;
             this.total = res.data.Total;
@@ -103,14 +104,14 @@ export default {
         },
         // 获取新闻列表
         getNewsContent(){
-            let url = 'http://mgr.gdzxjy.cn/zxwebsite//zxnews/content/manager/newsList?page=1&pagesize=' + this.pageSize;
-            this.axios.get(url).then(res => {
-                let array = res.data.Rows;
-                if(this.pageSize !== 6) array.splice(0,this.pageSize-6);
-                this.newsList = array;
-            })
-            document.body.scrollTop = 500;
-            document.documentElement.scrollTop = 500;
+            // let url = 'http://mgr.gdzxjy.cn/zxwebsite//zxnews/content/manager/newsList?page=1&pagesize=' + this.pageSize;
+            // this.axios.get(url).then(res => {
+            //     let array = res.data.Rows;
+            //     if(this.pageSize !== 6) array.splice(0,this.pageSize-6);
+            //     this.newsList = array;
+            // })
+            // document.body.scrollTop = 500;
+            // document.documentElement.scrollTop = 500;
         }
     }
 };

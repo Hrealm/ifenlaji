@@ -20,13 +20,26 @@
                     <h2>{{newsDetails.fTitle}}</h2>
                     <p class="news-desc">
                         <span class="news-date">{{time | releaseTime}}</span>
-                        <span>- - 中象福达</span>
+                        <!-- <span>- - 中象福达</span> -->
                     </p>
                     <div class="news-article" v-html="newsDetails.fContent"></div>
                 </div>
             </div>
         </div>
         <!-- news end -->
+
+        <!-- 评论系统 -->
+        <div class="comment">
+            <div class="comment_title clearFix">
+                <h3 class="fl"><span>评论</span></h3>
+                <!-- <span class="sum fl">共0条评论</span> -->
+            </div>
+            <!-- 来必力City版安装代码 -->
+            <div id="lv-container" data-id="city" data-uid="MTAyMC80OTc1NS8yNjI0Ng=="></div>
+            <!-- City版安装代码已完成 -->
+            
+            <!-- <div class="comment_none">评论系统升级中</div> -->
+        </div>
 
         
     </div>
@@ -42,11 +55,14 @@ export default {
     },
     created(){
         let id = this.$route.query.id;
-        let url = 'http://mgr.gdzxjy.cn/zxwebsite//zxnews/content/manager/news?fId=' + id;
+        // let url = 'http://mgr.gdzxjy.cn/zxwebsite//zxnews/content/manager/news?fId=' + id;
+        let url = 'http://localhost:8899/inews?title=news&id=' + id;
         this.axios.get(url).then(res => {
-            this.newsDetails = res.data.news;
+            this.newsDetails = res.data;
             this.time = this.newsDetails.fReleaseTime;
             // console.log(typeof this.newsDetails.fReleaseTime);
+            console.log(res.data);
+            
         })
     },
     components: {},
@@ -59,6 +75,20 @@ export default {
         releaseTime: function(time){
             return time.substring(0,10);
         }
+    },
+    mounted(){
+        //来必力City版安装代码
+        (function(d, s) {
+            var j, e = d.getElementsByTagName(s)[0];
+
+            if (typeof LivereTower === 'function') { return; }
+
+            j = d.createElement(s);
+            j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+            j.async = true;
+
+            e.parentNode.insertBefore(j, e);
+        })(document, 'script');
     }
 };
 </script>
@@ -73,7 +103,7 @@ export default {
     .news{
         width: 100%;
         .max1200{
-            width: 1200px;
+            width: 1140px;
             margin: 0 auto;
             .news-back{
                 height: 77px;
@@ -133,6 +163,34 @@ export default {
                     line-height: 36px;
                 }
             }
+        }
+    }
+
+    .comment{
+        width: 1140px;
+        margin-top: 40px;
+        margin: 0 auto;
+        .comment_title{
+            height: 33px;
+            // border-bottom: 2px solid #52c5fd;
+            border-bottom: 2px solid #D6D6D6;
+            h3{
+                font-size: 20px;
+                line-height: 28px;
+                font-weight: normal;
+            }
+            .sum{
+                margin-left: 20px;
+                margin-top: 9px;
+                font-size: 12px;
+                color: #666;
+            }
+        }
+        .comment_none{
+            font-size: 16px;
+            line-height: 144px;
+            text-align: center;
+            color: #000;
         }
     }
 }
