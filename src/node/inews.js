@@ -8,14 +8,14 @@ var inews = {
         },
         {
             id: 2,
-            fTitle: '',
-            fReleaseTime: '',
+            fTitle: '中国垃圾分类进入“强制时代”',
+            fReleaseTime: '2020-03-31',
             fContent: ''
         },
         {
             id: 3,
-            fTitle: '',
-            fReleaseTime: '',
+            fTitle: '生活垃圾分类指导手册',
+            fReleaseTime: '2020-03-30',
             fContent: ''
         }
     ]
