@@ -66,7 +66,7 @@ export default {
     data() {
         return {
             newsList: [],
-            total: null,
+            total: 6,
             pageSize: 6
         };
     },
@@ -75,7 +75,7 @@ export default {
         let url = 'http://localhost:8899/inewsList';
         this.axios.get(url).then(res => {
             this.newsList = res.data.Rows;
-            this.total = res.data.Total;
+            // this.total = res.data.Total;
             // console.log(this.newsList);
         })
     },
