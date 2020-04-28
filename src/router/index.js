@@ -15,6 +15,10 @@ import About from '../components/about/about'
 import Axios from 'axios'
 Vue.prototype.axios = Axios;
 
+// 懒加载
+import VueLazyload from 'vue-lazyload'
+Vue.use(VueLazyload)
+
 
 Vue.use(Router)
 
