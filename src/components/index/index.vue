@@ -160,9 +160,12 @@
                             <div class="n_tags">
                                 <span v-for="(item,index) in item.fTip" :key="index">{{item}}</span>
                             </div>
-                            <a href="">
+                            <router-link
+                                :to="{name:'newsDetails', query:{id:item.fId}}"
+                                active-class
+                            >
                                 <h4 class="n_title">{{item.fTitle}}</h4>
-                            </a>
+                            </router-link>
                             <p class="n_desc">{{item.fTags}}</p>
                             <h6 class="n_date">{{item.fReleaseTime}}</h6>
                         </div>
@@ -210,7 +213,8 @@ export default {
     created(){
         let url = 'http://localhost:8899/inewsList';
         this.axios.get(url).then(res=>{
-            this.newList = res.data.Rows;            
+            this.newList = res.data.Rows.slice(0,3);
+            // console.log(this.newList);
         })
     }
 };

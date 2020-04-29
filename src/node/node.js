@@ -39,40 +39,6 @@ server.on('request',(req,res)=>{
         reJson(_pathName);
     }
     
-    // switch (pathName){
-    //     case '/banner':
-    //         reJson('banner');
-    //         break;
-    //     case '/songList':
-    //         reJson('songList');
-    //         break;
-    //     case '/hotList':
-    //         reJson('hotList');
-    //         break;
-    //     case '/tabMenu':
-    //         reJson('tabMenu');
-    //         break;
-    //     case '/SongtabContent':
-    //         reJson('SongtabContent');
-    //         break;
-    //     case '/hotMV':
-    //         reJson('hotMV');
-    //         break;
-    //     case '/hotRadio':
-    //         reJson('hotRadio');
-    //         break;
-    //     case '/hotSinger':
-    //         reJson('hotSinger');
-    //         break;
-    //     case '/navList':
-    //         reJson('navList');
-    //         break;
-    //     case '/songlistContent':
-    //         reJson('songlistContent');
-    //         break;
-    //     default:
-    //         break;
-    // }
 
     function reJson(route) {
         if(parseObj.query.title){
