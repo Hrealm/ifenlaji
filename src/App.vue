@@ -1,5 +1,7 @@
 <template>
     <div id="app">
+        <!-- backtop -->
+        <el-backtop></el-backtop>
 		<!-- 导航 -->
 		<header>
             <div class="nav">
@@ -55,6 +57,7 @@
                 <p>Copyright  ©  2020 <span>ifenlaji</span> -Inc.All Rights Reserved.</p>
             </div>
         </footer>
+
     </div>
 </template>
 

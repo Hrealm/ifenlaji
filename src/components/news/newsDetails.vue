@@ -61,7 +61,7 @@ export default {
             this.newsDetails = res.data;
             this.time = this.newsDetails.fReleaseTime;
             // console.log(typeof this.newsDetails.fReleaseTime);
-            console.log(res.data);
+            // console.log(res.data);
             
         })
     },
