@@ -238,8 +238,7 @@ export default {
             right: 0;
             margin: 0 auto;
             width: 100%;
-            // height: 1000px;
-            height: 800px;
+            height: 125%;
             background: url('/static/img/index/--banner_bg.jpg') no-repeat scroll center 0/cover;
             opacity: 0.5;
             z-index: -1;

@@ -20,7 +20,6 @@
                     <h2>{{newsDetails.fTitle}}</h2>
                     <p class="news-desc">
                         <span class="news-date">{{newsDetails.fReleaseTime}}</span>
-                        <!-- <span>- - 中象福达</span> -->
                     </p>
                     <div class="news-article" v-html="newsDetails.fContent"></div>
                 </div>

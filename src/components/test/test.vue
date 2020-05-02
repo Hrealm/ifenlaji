@@ -303,7 +303,8 @@ export default {
         overflow: hidden;
         .ban_bg{
             width: 100%;
-            height: 421px;
+            // height: 421px;
+            height: 125%;
             background: url('/static/img/test/test-banner.png') no-repeat;
             background-position: center top;
             background-size: 100%;
