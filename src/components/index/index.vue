@@ -121,7 +121,10 @@
                     <p class="a_desc">
                         平台致力于帮助每一个人提升环保价值观念。垃圾分类已经成为一个国家发展的必然路径。培养垃圾分类的好习惯，为改善生活环境作努力，为绿色发展可持续发展作贡献是每个公民的责任。因此，本平台将提供高精准的垃圾分类搜索功能；最新最权威的相关资讯及垃圾处理政策；垃圾回收处理商；全球可视化预测...
                     </p>
-                    <a href="" class="a_about">More about us</a>
+                    <router-link class="a_about" :to="{name: 'about'}">
+                        More about us
+                    </router-link>
+                    <!-- <a href="" ></a> -->
                 </div>
                 <div class="a_right">
                     <img class="a_bg" src="../../../static/img/index/new--about_bg.png" alt="">

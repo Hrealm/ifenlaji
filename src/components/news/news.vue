@@ -3,11 +3,12 @@
         <!-- <h1>新闻中心</h1> -->
         <!-- banner begin -->
         <div class="banner">
-            <img src="/static/img/new1.jpg" width="100%" height="100%" />
-            <div class="banner-text">
+            <div class="ban-bg"></div>
+            <!-- <img src="/static/img/new_bg.jpg" width="100%" height="100%" /> -->
+            <!-- <div class="banner-text">
                 <h2>新闻中心</h2>
                 <h3>news centre</h3>
-            </div>
+            </div> -->
         </div>
         <!-- banner end -->
 
@@ -137,37 +138,27 @@ export default {
 .container {
     width: 100%;
     min-height: 100vh;
-    // height: 3000px;
     .banner {
         position: relative;
         width: 100%;
-        margin-top: -1px;
-        .banner-text {
-            position: absolute;
-            top: 50%;
-            left: 0;
-            right: 0;
-            width: 1200px;
-            margin: auto;
-            transform: translateY(-50%);
-            color: #fff;
-            // padding-left: 50px;
-            h2 {
-                line-height: 47.5px;
-                font-size: 47.5px;
-                font-style: normal;
-                font-weight: 700;
-                letter-spacing: 10px;
-                padding-bottom: 20px;
-            }
-            h3 {
-                font-size: 25.7px;
-                font-weight: 400;
-                font-style: normal;
-                letter-spacing: 2px;
-                text-transform: uppercase;
-            }
-        }
+        height: 421px;
+        background: #04091e;
+        z-index: 1;
+        overflow: hidden;
+
+        .ban-bg {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			margin: 0 auto;
+			width: 100%;
+			height: 100%;
+			background: url('/static/img/new_bg.jpg') no-repeat
+				scroll center 0 / cover;
+			opacity: 0.8;
+			z-index: -1;
+		}
     }
     .latest-news {
         width: 100%;
