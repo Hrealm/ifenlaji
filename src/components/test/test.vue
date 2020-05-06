@@ -311,7 +311,7 @@ export default {
         }
     }
     .test_con{
-        width: 1110px;
+        width: 1140px;
         padding: 60px 15px;
         margin: 0 auto;
         .answerCard{
