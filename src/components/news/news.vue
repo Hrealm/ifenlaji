@@ -154,7 +154,7 @@ export default {
 			margin: 0 auto;
 			width: 100%;
 			height: 100%;
-			background: url('/static/img/new_bg.jpg') no-repeat
+			background: url('/static/img/news/new_bg.jpg') no-repeat
 				scroll center 0 / cover;
 			opacity: 0.8;
 			z-index: -1;

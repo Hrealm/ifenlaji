@@ -1,6 +1,8 @@
 <template>
     <div class="container">
-        <div class="banner"></div>
+        <div class="banner">
+
+        </div>
 
     </div>
 </template>
@@ -21,7 +23,7 @@ export default {
     .banner{
         width: 100%;
         height: 826px;
-        background: url('/static/img/recycle.jpg') no-repeat;
+        background: url('/static/img/recycle/banner-bg.jpg') no-repeat;
         background-position: center top;
     }
 }

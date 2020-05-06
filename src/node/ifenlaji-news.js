@@ -2,7 +2,7 @@ var inewsList = {
     Rows: [
         {
             fId: 1,
-            fImage: '../static/img/428.jpg',
+            fImage: '../static/img/news/428.jpg',
             fReleaseTime: '2020-04-15',
             fTitle: '疫情防控不停歇 垃圾分类要同行',
             fTip: ['疫情防控','垃圾分类'],
@@ -10,7 +10,7 @@ var inewsList = {
         },
         {
             fId: 2,
-            fImage: '../static/img/128.jpg',
+            fImage: '../static/img/news/128.jpg',
             fReleaseTime: '2020-03-31',
             fTitle: '中国垃圾分类进入“强制时代”',
             fTip: ['新闻','垃圾分类'],
@@ -18,7 +18,7 @@ var inewsList = {
         },
         {
             fId: 3,
-            fImage: '../static/img/419.png',
+            fImage: '../static/img/news/419.png',
             fReleaseTime: '2020-03-30',
             fTitle: '生活垃圾分类指导手册',
             fTip: ['新闻','指导手册'],
@@ -26,7 +26,7 @@ var inewsList = {
         },
         {
             fId: 4,
-            fImage: '../static/img/428.jpg',
+            fImage: '../static/img/news/428.jpg',
             fReleaseTime: '2020-04-15',
             fTitle: '4',
             fTip: ['疫情防控','垃圾分类'],
@@ -34,7 +34,7 @@ var inewsList = {
         },
         {
             fId: 5,
-            fImage: '../static/img/128.jpg',
+            fImage: '../static/img/news/128.jpg',
             fReleaseTime: '2020-03-31',
             fTitle: '5”',
             fTip: ['新闻','垃圾分类'],
@@ -42,7 +42,7 @@ var inewsList = {
         },
         {
             fId: 6,
-            fImage: '../static/img/419.png',
+            fImage: '../static/img/news/419.png',
             fReleaseTime: '2020-03-30',
             fTitle: '6',
             fTip: ['新闻','指导手册'],
@@ -50,7 +50,7 @@ var inewsList = {
         },
         {
             fId: 7,
-            fImage: '../static/img/428.jpg',
+            fImage: '../static/img/news/428.jpg',
             fReleaseTime: '2020-04-15',
             fTitle: '7',
             fTip: ['疫情防控','垃圾分类'],
@@ -58,7 +58,7 @@ var inewsList = {
         },
         {
             fId: 8,
-            fImage: '../static/img/128.jpg',
+            fImage: '../static/img/news/128.jpg',
             fReleaseTime: '2020-03-31',
             fTitle: '8”',
             fTip: ['新闻','垃圾分类'],
@@ -66,7 +66,7 @@ var inewsList = {
         },
         {
             fId: 9,
-            fImage: '../static/img/419.png',
+            fImage: '../static/img/news/419.png',
             fReleaseTime: '2020-03-30',
             fTitle: '9',
             fTip: ['新闻','指导手册'],
@@ -74,7 +74,7 @@ var inewsList = {
         },
         {
             fId: 10,
-            fImage: '../static/img/428.jpg',
+            fImage: '../static/img/news/428.jpg',
             fReleaseTime: '2020-04-15',
             fTitle: '10',
             fTip: ['疫情防控','垃圾分类'],
@@ -82,7 +82,7 @@ var inewsList = {
         },
         {
             fId: 11,
-            fImage: '../static/img/128.jpg',
+            fImage: '../static/img/news/128.jpg',
             fReleaseTime: '2020-03-31',
             fTitle: '11',
             fTip: ['新闻','垃圾分类'],
@@ -90,7 +90,7 @@ var inewsList = {
         },
         {
             fId: 12,
-            fImage: '../static/img/419.png',
+            fImage: '../static/img/news/419.png',
             fReleaseTime: '2020-03-30',
             fTitle: '12',
             fTip: ['新闻','指导手册'],
