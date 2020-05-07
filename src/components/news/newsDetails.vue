@@ -3,7 +3,7 @@
         <!-- <h2>新闻详情页面</h2> -->
         <!-- banner begin -->
         <div class="banner">
-            <img src="/static/img/newsbanner.png" alt width="100%" />
+            <img src="/static/img/news/newsbanner.jpg" alt width="100%" />
         </div>
         <!-- banner end -->
 
