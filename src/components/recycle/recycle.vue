@@ -40,7 +40,7 @@
                 <div class="r_title">
                     <p class="r_cn_t">垃圾回收</p>
                     <p class="r_en_t">Recycle Trash</p>
-                    <p class="r_more">期待更多</p>
+                    <p class="r_more">敬请期待</p>
                 </div>
             </div>
         </div>
@@ -206,6 +206,7 @@ export default {
                 font-size: 0;
                 ._item{
                     position: relative;
+                    z-index: 3;
                     top: 0;
                     float: left;
                     margin-right: 60px;
@@ -238,7 +239,9 @@ export default {
                 }
             }
             .r_title{
-                // height: 100%;
+                position: relative;
+                z-index: 1;
+                height: 530px;
                 .r_cn_t{
                     color: #FFFFFF;
                     font-family: 'Microsoft YaHei';
@@ -255,15 +258,16 @@ export default {
                     line-height: 35px;
                 }
                 .r_more{
-                    float: right;
+                    position: absolute;
                     width: 24px;
                     text-align: center;
                     padding: 10px 5px;
                     color: #656565;
                     border: 2px solid #656565;
                     cursor: pointer;
-                    margin-top: 356px;
-                    margin-right: 66px;
+                    bottom: 0px;
+                    right: 66px;
+                    font-size: 16px;
                 }
                 .r_more:hover{
                     background-color: #fff;
