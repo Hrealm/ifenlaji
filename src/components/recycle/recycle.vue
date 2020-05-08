@@ -45,6 +45,15 @@
             </div>
         </div>
 
+        <!-- 垃圾回收商 -->
+        <div class="shop">
+            <div class="s_con">
+                
+            </div>
+        </div>
+
+
+
     </div>
 </template>
 
@@ -114,6 +123,40 @@ export default {
                     en_title: 'Mechanical industrial recovery',
                     bg_img: '/static/img/recycle/mir.jpg',
                     _line: '/static/img/recycle/div_line.jpg'
+                }
+            ],
+            shops: [
+                {
+                    id: 1,
+                    cp: '广州浩天五金回收',
+                    cg: '电池塑料回收',
+                    sa: '南海  顺德  禅城  三水  高明  佛山周边',
+                    tp: '汤先生',
+                    ph: '4008194789'
+                },
+                {
+                    id: 2,
+                    cp: '满记再生资源回收',
+                    cg: '金属回收',
+                    sa: '白云  天河  番禺  海珠  花都  越秀  增城',
+                    tp: '钟先生',
+                    ph: '4008587262'
+                },
+                {
+                    id: 3,
+                    cp: '广州源宝再生资源回收有限公司',
+                    cg: '废纸回收',
+                    sa: '天河  海珠  越秀  白云  荔湾  黄埔  番禺',
+                    tp: '李先生',
+                    ph: '4008588713'
+                },
+                {
+                    id: 4,
+                    cp: '广州诚信废旧机械回收',
+                    cg: '机械工业回收',
+                    sa: '天河  海珠  越秀  白云  荔湾  番禺  黄埔  花都',
+                    tp: '王先生',
+                    ph: '4008984165'
                 }
             ]
         };
@@ -275,6 +318,11 @@ export default {
                 }
             }
         }
+    }
+    .shop{
+        width: 1170px;
+        padding: 80px 15px;
+        margin: 0 auto;
     }
 }
 </style>
