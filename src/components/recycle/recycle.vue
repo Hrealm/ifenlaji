@@ -30,7 +30,7 @@
                         class="_item"
                         v-for="item in rec_category"
                         :key="item.id"
-                        @click="getShop(item.id)"
+                        @click="getShop(item)"
                     >
                         <img :src="item.bg_img" alt />
                         <div class="desc">
@@ -62,7 +62,8 @@
                         <span class="_value">{{c_shop.cp}}</span>
                     </p>
                     <p class="cg _info">
-                        <span class="_key">类&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别：</span>
+                        <!-- <span class="_key">类&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别：</span> -->
+                        <span class="_key">主要类别：</span>
                         <span class="_value">{{c_shop.cg}}</span>
                     </p>
                     <p class="sa _info">
@@ -78,7 +79,7 @@
                         <span class="_ph" v-else>{{c_shop.ph}}</span>
                     </p>
                 </div>
-                <div class="credit fl" :class="'credit_bpr'"></div>
+                <div class="credit fl" :class="[isActive]"></div>
 
                 <!-- <div class="score-num fl">
                     <div class="score-desc">信用总分</div>
@@ -149,6 +150,7 @@ export default {
                     id: 0,
                     types: "",
                     cn_title: "电池塑料回收",
+                    credit: 'credit_bpr',
                     en_title: "Battery plastic recovery",
                     bg_img: "/static/img/recycle/bpr.jpg",
                     _line: "/static/img/recycle/div_line.jpg"
@@ -157,6 +159,7 @@ export default {
                     id: 1,
                     types: "",
                     cn_title: "各类金属回收",
+                    credit: 'credit_mr',
                     en_title: "Metal recovery",
                     bg_img: "/static/img/recycle/mr.jpg",
                     _line: "/static/img/recycle/div_line.jpg"
@@ -165,6 +168,7 @@ export default {
                     id: 2,
                     types: "",
                     cn_title: "书本纸张回收",
+                    credit: 'credit_bookpr',
                     en_title: "Book paper recycling",
                     bg_img: "/static/img/recycle/bookpr.jpg",
                     _line: "/static/img/recycle/div_line.jpg"
@@ -173,6 +177,7 @@ export default {
                     id: 3,
                     types: "",
                     cn_title: "机械工业回收",
+                    credit: 'credit_mir',
                     en_title: "Mechanical industrial recovery",
                     bg_img: "/static/img/recycle/mir.jpg",
                     _line: "/static/img/recycle/div_line.jpg"
@@ -195,6 +200,7 @@ export default {
                     sa: "白云  天河  番禺  海珠  花都  越秀  增城",
                     tp: "钟先生",
                     ph: "4008587262",
+                    credit: 'credit_mr',
                     img: "/static/img/recycle/s_mr.jpg"
                 },
                 {
@@ -204,6 +210,7 @@ export default {
                     sa: "天河  海珠  越秀  白云  荔湾  黄埔  番禺",
                     tp: "李先生",
                     ph: "4008588713",
+                    credit: 'credit_bookpr',
                     img: "/static/img/recycle/s_bookpr.jpg"
                 },
                 {
@@ -213,6 +220,7 @@ export default {
                     sa: "天河  海珠  越秀  白云  荔湾  番禺  黄埔",
                     tp: "王先生",
                     ph: "4008984165",
+                    credit: 'credit_mir',
                     img: "/static/img/recycle/s_mir.jpg"
                 }
             ],
@@ -226,7 +234,7 @@ export default {
                 img: "/static/img/recycle/s_bpr.jpg"
             },
             isPh: true,
-            _credit: 'credit_bpr'
+            isActive: 'credit_bpr'
         };
     },
     components: {},
@@ -234,9 +242,11 @@ export default {
         getPh() {
             this.isPh = false;
         },
-        getShop(i) {
-            this.c_shop = this.shops[i];
-            this.isPh = true;
+        getShop(item) {
+            this.c_shop = this.shops[item.id];
+            this.isPh  = true;
+            this.isActive  = item.credit;
+            
         }
     }
 };
@@ -470,7 +480,7 @@ export default {
                 width: 354px;
                 height: 220px;
                 // background: url("/static/img/recycle/credit_bpr.png") no-repeat -42px -36px;
-                background-size: 130%;
+                // background-size: 130%;
                 // background-color: #fafafa;
             }
             .credit_mir {
