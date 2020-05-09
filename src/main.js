@@ -11,6 +11,13 @@ import '../static/css/global.css'
 
 Vue.use(ElementUI);
 
+// 路由激活置顶
+router.afterEach(()=>{
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+});
+
+
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

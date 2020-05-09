@@ -10,7 +10,7 @@
                 <p class="desc">习近平：培养垃圾分类的好习惯 为改善生活环境作努力 <br>
                  为绿色发展可持续发展作贡献</p>
                 <router-link :to="{name: 'query'}">
-                    <span>Get Started</span>
+                    <span><i class="el-icon-search"></i> 立即查询</span>
                 </router-link>
             </div>
         </div>
@@ -285,9 +285,17 @@ export default {
                 text-transform: uppercase;
                 color: #fff;
                 font-weight: 600;
-                background: #f3c300;
+                // background: #f3c300;
                 padding: 5px 30px;
                 letter-spacing: 1.5px;
+                border: 1px solid #fff;
+                i{
+                    font-size: 16px;
+                }
+            }
+            a:hover{
+                background-color: #f3c300;
+                border: 1px solid #f3c300;
             }
         }
     }

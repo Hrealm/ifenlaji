@@ -246,6 +246,8 @@ export default {
             this.c_shop = this.shops[item.id];
             this.isPh  = true;
             this.isActive  = item.credit;
+            document.body.scrollTop = 1500;
+            document.documentElement.scrollTop = 1500;
             
         }
     }

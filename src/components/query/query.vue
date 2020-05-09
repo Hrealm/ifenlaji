@@ -149,8 +149,14 @@ export default {
                 }
                 this.newslist = res.data.newslist;
                 this.isShow = false;
-
+                document.body.scrollTop = 300;
+                document.documentElement.scrollTop = 300;
+                this.$message({
+                    message: '查询成功',
+                    type: 'success'
+                });
             })
+            
         }
     },
     filters: {
