@@ -122,7 +122,9 @@ export default {
                         'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
                     }
                 }).then(res=>{
-                    if(typeof res.data.newslist === 'undefined'){
+                    // console.log(res.data.newslist == null);
+                    
+                    if(typeof res.data.newslist === 'undefined' || res.data.newslist == null){
                         this.$alert('没有查到相关内容！', '提示', {
                             confirmButtonText: '确定',
                             callback: action => {
